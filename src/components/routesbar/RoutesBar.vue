@@ -1,13 +1,14 @@
 <template>
   <div class="routes-bar">
-    <div class="routes-item">
-      <ExplorerIcon />
-    </div>
+    <RouteItem path="/" :icon-component="ExplorerIcon" />
+    <RouteItem path="/search" :icon-component="SearchIcon" />
   </div>
 </template>
 
 <script setup lang="ts">
+import RouteItem from './RouteItem.vue'
 import ExplorerIcon from './icons/ExplorerIcon.vue'
+import SearchIcon from './icons/SearchIcon.vue'
 </script>
 
 <style scoped>
@@ -17,11 +18,11 @@ import ExplorerIcon from './icons/ExplorerIcon.vue'
   border: 1px solid var(--vscode-border);
 }
 
-.routes-item {
+.route-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 2px solid blue;
   height: 48px;
+  cursor: pointer;
 }
 </style>
