@@ -2,7 +2,7 @@
   <div class="toggle-controls">
     <div
       class="toggle-control"
-      @click="templateStore.toggleSidebar()"
+      @click="templateStore.toggleVisibility('sidebar')"
       v-tooltip="{
         content: 'Toggle Primary Side Bar (Ctrl+B)',
         ...tbTooltip,
@@ -13,7 +13,7 @@
 
     <div
       class="toggle-control"
-      @click="templateStore.toggleTerminal()"
+      @click="templateStore.toggleVisibility('terminal')"
       v-tooltip="{
         content: 'Toggle Panel (Ctrl+J)',
         ...tbTooltip,
@@ -31,8 +31,8 @@ import TerminalIcon from '@/components/taskbar/icons/TerminalIcon.vue'
 import SidebarIcon from '@/components/taskbar/icons/SidebarIcon.vue'
 
 const templateStore = useTemplateStore()
-const terminalIsVisible = computed(() => templateStore.terminalIsVisible)
-const sidebarIsVisible = computed(() => templateStore.sidebarIsVisible)
+const terminalIsVisible = computed(() => templateStore.getTerminalConfig.isVisible)
+const sidebarIsVisible = computed(() => templateStore.getSidebarConfig.isVisible)
 
 const tbTooltip = {
   theme: 'custom-tooltip',

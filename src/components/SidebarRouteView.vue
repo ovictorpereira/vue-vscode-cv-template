@@ -1,5 +1,11 @@
 <template>
-  <div class="resizable-route-view" :style="{ width: `${width}px` }">
+  <div
+    class="sidebar-route-view"
+    :class="{ 'sidebar-route-view-border': sidebarIsVisible }"
+    :style="{ width: sidebarIsVisible ? `${sidebarWidth}px` : `5px` }"
+  >
+    <RouterView v-if="sidebarIsVisible" />
+
     <div
       class="dragbar"
       :class="{ dragging: isDragging }"
@@ -10,10 +16,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useTemplateStore } from '@/stores/template'
 
-const width = ref(300)
-const isDragging = ref(false)
+const templateStore = useTemplateStore()
+const sidebarIsVisible = computed(() => templateStore.getSidebarConfig.isVisible)
+const sidebarWidth = computed(() => templateStore.getSidebarConfig.width)
+
+const isDragging = ref<boolean>(false)
 
 const startDrag = (e: MouseEvent | TouchEvent) => {
   isDragging.value = true
@@ -27,19 +37,20 @@ const onDrag = (e: MouseEvent | TouchEvent) => {
   let startWidth = 0
 
   const windowWidth = window.innerWidth
-
   const app = document.getElementById('app')
   const appWidth = app ? app.offsetWidth : window.innerWidth
-
   const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX
 
-  if (appWidth == 1600) {
-    startWidth = (windowWidth - 1600) / 2 + 45
-  } else {
-    startWidth = 60
+  if (appWidth == 1600) startWidth = (windowWidth - 1600) / 2 + 45
+  else startWidth = 65
+
+  const result = clientX - startWidth
+  if (result > 180) {
+    templateStore.setVisibility('sidebar', true)
+    templateStore.setSidebarWidth(result)
   }
 
-  width.value = clientX - startWidth
+  if (result < 60) templateStore.setVisibility('sidebar', false)
 }
 
 const stopDrag = () => {
@@ -65,26 +76,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.resizable-route-view {
+.sidebar-route-view {
   height: 100%;
   background-color: var(--vscode-background);
-  border: 1px solid var(--vscode-border);
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
-.dragbar {
-  width: 3px;
-  cursor: ew-resize;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: transparent;
-}
-
-.dragging {
-  background-color: #0078d4;
+.sidebar-route-view-border {
+  border: 1px solid var(--vscode-border);
 }
 </style>

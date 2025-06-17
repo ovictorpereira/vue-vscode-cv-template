@@ -3,14 +3,14 @@
   <main class="appbody">
     <RoutesBar />
     <!-- <RouterView /> -->
-    <ResizableRouteView />
+    <SidebarRouteView />
   </main>
 </template>
 
 <script setup lang="ts">
 import TaskBar from '@/components/taskbar/TaskBar.vue'
 import RoutesBar from '@/components/routesbar/RoutesBar.vue'
-import ResizableRouteView from './components/ResizableRouteView.vue'
+import SidebarRouteView from './components/SidebarRouteView.vue'
 </script>
 
 <style>

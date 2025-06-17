@@ -52,6 +52,23 @@ body {
   border-color: #1f1f1f !important;
 }
 
+.dragbar {
+  width: 3px;
+  cursor: ew-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color 0.1s ease;
+}
+
+.dragbar:hover,
+.dragging {
+  background-color: #0078d4;
+  transition-delay: 0.4s;
+}
+
 @media (max-width: 400px) {
   body {
     padding: 0;
