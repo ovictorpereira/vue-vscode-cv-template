@@ -31,7 +31,20 @@ defineProps<Props>()
 </script>
 
 <style scoped>
+.folder-model {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: flex-start;
+}
+
 .folder-icon {
-  fill: var(--vscode-active-icon);
+  color: var(--vscode-active-icon);
+}
+
+.folder-label {
+  font-size: 11px;
+  font-weight: 700;
 }
 </style>
