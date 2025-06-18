@@ -5,28 +5,27 @@ import type { TreeNode, DataType } from '@/types'
 import axios from 'axios'
 
 export const useDataTreeStore = defineStore('data-tree', () => {
+  const projectRoot = ref<TreeNode>({
+    id: 1,
+    label: PROJECT_NAME,
+    type: 'folder',
+    isOpen: true,
+  })
+
   const dataTree = ref<TreeNode[]>([
     {
-      id: 1,
-      label: PROJECT_NAME,
+      id: 2,
+      label: 'github',
       type: 'folder',
-      isOpen: true,
-      children: [
-        {
-          id: 2,
-          label: 'github',
-          type: 'folder',
-          isOpen: false,
-          children: [],
-        },
-        {
-          id: 3,
-          label: 'README.md',
-          type: 'file',
-          icon: 'info',
-          path: '/README.md',
-        },
-      ],
+      isOpen: false,
+      children: [],
+    },
+    {
+      id: 3,
+      label: 'README.md',
+      type: 'file',
+      icon: 'info',
+      path: '/README.md',
     },
   ])
 
@@ -79,6 +78,7 @@ export const useDataTreeStore = defineStore('data-tree', () => {
       const repos = (response.data as GithubRepo[]).map((repo) => ({
         id: repo.id,
         label: repo.language ? `${repo.language} - ${repo.name}` : repo.name,
+        icon: 'github',
         type: 'file' as DataType,
         isOpen: false,
         children: [],
@@ -92,5 +92,5 @@ export const useDataTreeStore = defineStore('data-tree', () => {
     }
   }
 
-  return { dataTree, toggleNodeOpen, getGithubRepos }
+  return { projectRoot, dataTree, toggleNodeOpen, getGithubRepos }
 })

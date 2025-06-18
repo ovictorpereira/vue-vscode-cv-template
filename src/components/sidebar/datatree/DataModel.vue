@@ -13,18 +13,14 @@
       <FileIcon v-else :icon="data.icon || ''" />
 
       <span class="data-label">
-        {{ data.id === 1 ? data.label.toUpperCase() : data.label }}
+        {{ data.label }}
       </span>
     </div>
   </div>
 
   <div v-if="data.type === 'folder' && data.children && data.isOpen" class="children-container">
-    <div
-      v-for="child in data.children"
-      :key="child.id"
-      class="tree-node"
-      :style="{ paddingLeft: data.id === 1 ? '0.75rem' : '0' }"
-    >
+    <div class="folder-root-line"></div>
+    <div v-for="child in data.children" :key="child.id" class="tree-node">
       <DataModel :data="child" />
     </div>
   </div>
@@ -60,17 +56,17 @@ function nodeAction() {
   cursor: pointer;
   user-select: none;
   width: 100%;
-  height: 22px;
+  height: 25px;
   display: flex;
   flex-direction: column;
-  color: #bdc6cf;
+  color: var(--vscode-active-icon);
 }
 
 .node-content {
   display: flex;
   align-items: center;
-  height: 22px;
-  padding-left: 4px;
+  height: 25px;
+  padding-left: 14px;
   gap: 4px;
   width: 100%;
   position: relative;
@@ -81,8 +77,8 @@ function nodeAction() {
   content: '';
   position: absolute;
   top: 0;
-  left: -100vw; /* Estende muito para a esquerda */
-  right: -100vw; /* Estende muito para a direita */
+  left: -100vw;
+  right: -100vw;
   bottom: 0;
   z-index: -1;
   background-color: transparent;
@@ -98,28 +94,36 @@ function nodeAction() {
 
 .data-label {
   font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 8px;
+  color: var(--vscode-active-icon);
 }
 
 .children-container {
   width: 100%;
+  position: relative;
+}
+
+.folder-root-line {
+  position: absolute;
+  left: 20px;
+  height: 100%;
+  border-left: 1px solid var(--vscode-border);
 }
 
 .tree-node {
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
 }
 
-.folder .data-label {
+/* .folder .data-label {
   font-weight: 500;
-}
+} */
 
-.file .data-label {
+/* .file .data-label {
   opacity: 0.9;
-}
+} */
 </style>

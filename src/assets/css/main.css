@@ -61,6 +61,7 @@ body {
   bottom: 0;
   background-color: transparent;
   transition: background-color 0.1s ease;
+  z-index: 99;
 }
 
 .dragbar:hover,

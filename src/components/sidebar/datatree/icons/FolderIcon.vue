@@ -22,9 +22,3 @@ interface Props {
 
 defineProps<Props>()
 </script>
-
-<style>
-.folder-icon {
-  color: var(--vscode-active-icon);
-}
-</style>
