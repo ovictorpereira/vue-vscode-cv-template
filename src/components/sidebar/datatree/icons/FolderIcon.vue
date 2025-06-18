@@ -8,6 +8,7 @@
     stroke-linecap="round"
     stroke-linejoin="round"
     class="folder-icon"
+    fill="transparent"
     :style="`transform: rotate(${isOpen ? '90' : '0'}deg)`"
   >
     <polyline points="9 18 15 12 9 6"></polyline>

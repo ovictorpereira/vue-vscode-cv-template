@@ -1,7 +1,8 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { PROJECT_NAME } from '@/constants/constants'
-import type { TreeNode } from '@/types'
+import { PROJECT_NAME, GITHUB_USERNAME } from '@/constants/constants'
+import type { TreeNode, DataType } from '@/types'
+import axios from 'axios'
 
 export const useDataTreeStore = defineStore('data-tree', () => {
   const dataTree = ref<TreeNode[]>([
@@ -22,7 +23,7 @@ export const useDataTreeStore = defineStore('data-tree', () => {
           id: 3,
           label: 'README.md',
           type: 'file',
-          icon: 'file-text',
+          icon: 'info',
           path: '/README.md',
         },
       ],
@@ -46,5 +47,50 @@ export const useDataTreeStore = defineStore('data-tree', () => {
     return false
   }
 
-  return { dataTree, toggleNodeOpen }
+  function populateNodeChildren(
+    id: number,
+    childrenData: TreeNode[],
+    nodes: TreeNode[] = dataTree.value,
+  ): boolean {
+    for (const node of nodes) {
+      if (node.id === id) {
+        node.children = childrenData
+
+        return true
+      }
+
+      if (node.children && node.children.length) {
+        if (populateNodeChildren(id, childrenData, node.children)) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
+  const getGithubRepos = async () => {
+    try {
+      const response = await axios.get(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+      type GithubRepo = {
+        id: number
+        name: string
+        language: string | null
+      }
+      const repos = (response.data as GithubRepo[]).map((repo) => ({
+        id: repo.id,
+        label: repo.language ? `${repo.language} - ${repo.name}` : repo.name,
+        type: 'file' as DataType,
+        isOpen: false,
+        children: [],
+      }))
+
+      const githubNodeId = 2
+      populateNodeChildren(githubNodeId, repos)
+      console.log(dataTree.value)
+    } catch (error) {
+      console.error('Error fetching GitHub repositories:', error)
+    }
+  }
+
+  return { dataTree, toggleNodeOpen, getGithubRepos }
 })
