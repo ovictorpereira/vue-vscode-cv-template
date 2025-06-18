@@ -77,7 +77,7 @@ export const useDataTreeStore = defineStore('data-tree', () => {
       }
       const repos = (response.data as GithubRepo[]).map((repo) => ({
         id: repo.id,
-        label: repo.language ? `${repo.language} - ${repo.name}` : repo.name,
+        label: repo.name,
         icon: 'github',
         type: 'file' as DataType,
         isOpen: false,
