@@ -67,6 +67,7 @@ function nodeAction() {
   align-items: center;
   height: 25px;
   padding-left: 14px;
+  padding-right: 8px;
   gap: 4px;
   width: 100%;
   position: relative;

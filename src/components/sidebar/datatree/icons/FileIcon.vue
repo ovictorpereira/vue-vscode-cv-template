@@ -1,9 +1,10 @@
 <template>
   <svg
-    width="16"
-    height="16"
+    width="14"
+    height="14"
     viewBox="0 0 16 16"
     fill="none"
+    class="file-icon"
     xmlns="http://www.w3.org/2000/svg"
     v-if="icon === 'info'"
   >
@@ -16,11 +17,12 @@
 
   <svg
     v-if="icon === 'github'"
-    width="16"
-    height="16"
+    width="14"
+    height="14"
     viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
+    class="file-icon"
     style="transform: rotate(0deg)"
   >
     <path
@@ -39,4 +41,10 @@ interface Props {
 defineProps<Props>()
 </script>
 
-<style scoped></style>
+<style scoped>
+.file-icon {
+  min-width: 14px;
+  min-height: 14px;
+  flex-shrink: 0;
+}
+</style>
