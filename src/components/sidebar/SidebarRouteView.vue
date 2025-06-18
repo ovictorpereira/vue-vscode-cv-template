@@ -20,8 +20,8 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
 
 const templateStore = useTemplateStore()
-const sidebarIsVisible = computed(() => templateStore.getSidebarConfig.isVisible)
-const sidebarWidth = computed(() => templateStore.getSidebarConfig.width)
+const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
+const sidebarWidth = computed(() => templateStore.sidebarConfig.width)
 
 const isDragging = ref<boolean>(false)
 

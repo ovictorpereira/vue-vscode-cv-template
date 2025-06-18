@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 import type { SidebarConfig, TerminalConfig, ConfigKey } from '@/types'
@@ -14,11 +14,6 @@ export const useTemplateStore = defineStore('template', () => {
     isVisible: true,
   })
 
-  // GETTERS
-  const getTerminalConfig = computed(() => terminalConfig.value)
-  const getSidebarConfig = computed(() => sidebarConfig.value)
-
-  // SETTERS
   const toggleVisibility = (key: ConfigKey) => {
     if (key === 'sidebar') sidebarConfig.value.isVisible = !sidebarConfig.value.isVisible
     if (key === 'terminal') terminalConfig.value.isVisible = !terminalConfig.value.isVisible
@@ -38,8 +33,8 @@ export const useTemplateStore = defineStore('template', () => {
   }
 
   return {
-    getTerminalConfig,
-    getSidebarConfig,
+    terminalConfig,
+    sidebarConfig,
     toggleVisibility,
     setVisibility,
     setTerminalHeight,

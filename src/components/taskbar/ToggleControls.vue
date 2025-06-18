@@ -31,8 +31,8 @@ import TerminalIcon from '@/components/taskbar/icons/TerminalIcon.vue'
 import SidebarIcon from '@/components/taskbar/icons/SidebarIcon.vue'
 
 const templateStore = useTemplateStore()
-const terminalIsVisible = computed(() => templateStore.getTerminalConfig.isVisible)
-const sidebarIsVisible = computed(() => templateStore.getSidebarConfig.isVisible)
+const terminalIsVisible = computed(() => templateStore.terminalConfig.isVisible)
+const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
 
 const tbTooltip = {
   theme: 'custom-tooltip',
