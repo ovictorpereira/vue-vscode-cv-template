@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import TaskBar from '@/components/taskbar/TaskBar.vue'
 import RoutesBar from '@/components/routesbar/RoutesBar.vue'
-import SidebarRouteView from './components/SidebarRouteView.vue'
+import SidebarRouteView from './components/sidebar/SidebarRouteView.vue'
 </script>
 
 <style>

@@ -41,7 +41,7 @@
 }
 
 .window-control:hover {
-  background-color: #3c3c3c;
+  background-color: var(--vscode-icon-hover);
 }
 
 .window-control-close:hover {
