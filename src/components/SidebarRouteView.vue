@@ -50,7 +50,7 @@ const onDrag = (e: MouseEvent | TouchEvent) => {
     templateStore.setSidebarWidth(result)
   }
 
-  if (result < 60) templateStore.setVisibility('sidebar', false)
+  if (result < 90) templateStore.setVisibility('sidebar', false)
 }
 
 const stopDrag = () => {

@@ -1,12 +1,13 @@
 <template>
   <div class="search-bar">
     <SearchIcon />
-    <span>vscode-template-vue</span>
+    <span>{{ PROJECT_NAME.toLowerCase() }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
 import SearchIcon from './icons/SearchIcon.vue'
+import { PROJECT_NAME } from '@/constants/constants'
 </script>
 
 <style scoped>

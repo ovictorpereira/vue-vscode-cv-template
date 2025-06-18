@@ -23,9 +23,10 @@ defineProps<Props>()
 }
 
 .route-icon {
-  fill: #868686;
+  fill: var(--vscode-inactive-icon);
 }
+
 .active-route-icon {
-  fill: #d7d7d7;
+  fill: var(--vscode-active-icon);
 }
 </style>

@@ -2,7 +2,6 @@
   <TaskBar />
   <main class="appbody">
     <RoutesBar />
-    <!-- <RouterView /> -->
     <SidebarRouteView />
   </main>
 </template>
