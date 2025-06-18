@@ -1,17 +1,7 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-interface SidebarConfig {
-  width: number
-  isVisible: boolean
-}
-
-interface TerminalConfig {
-  height: number
-  isVisible: boolean
-}
-
-type ConfigKey = 'sidebar' | 'terminal'
+import type { SidebarConfig, TerminalConfig, ConfigKey } from '@/types'
 
 export const useTemplateStore = defineStore('template', () => {
   const terminalConfig = ref<TerminalConfig>({

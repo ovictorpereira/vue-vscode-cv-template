@@ -21,6 +21,8 @@
 </template>
 
 <script setup lang="ts">
+// import { useDataTreeStore } from '@/stores/data-tree'
+
 interface Props {
   isOpened: boolean
   index: number
