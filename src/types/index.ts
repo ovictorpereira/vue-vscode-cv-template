@@ -25,6 +25,6 @@ export interface TreeNode {
 export interface Document {
   id: number
   label: string
-  isOpen: boolean
+  isActive: boolean
   content: string
 }

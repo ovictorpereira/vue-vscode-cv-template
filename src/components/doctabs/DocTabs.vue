@@ -4,7 +4,7 @@
       <li
         v-for="(item, index) in documents"
         :key="index"
-        :class="{ 'active-tab': item.isOpen }"
+        :class="{ 'active-tab': item.isActive }"
         @click="openDocument(item.id)"
       >
         <div class="tab-container">

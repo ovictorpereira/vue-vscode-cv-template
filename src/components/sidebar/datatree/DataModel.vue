@@ -4,7 +4,6 @@
     :class="{
       folder: data.type === 'folder',
       file: data.type === 'file',
-      'active-item': isActive,
     }"
     @click.stop="nodeAction"
   >
@@ -27,15 +26,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { TreeNode } from '@/types'
 import { useDataTreeStore } from '@/stores/data-tree'
+import { useDocumentsStore } from '@/stores/documents'
 import FolderIcon from './icons/FolderIcon.vue'
 import FileIcon from './icons/FileIcon.vue'
 import DataModel from '@/components/sidebar/datatree/DataModel.vue'
 
 const dataTreeStore = useDataTreeStore()
-const isActive = ref(false)
+const documentsStore = useDocumentsStore()
 
 interface Props {
   data: TreeNode
@@ -46,7 +45,12 @@ function nodeAction() {
   if (props.data.type === 'folder') {
     dataTreeStore.toggleNodeOpen(props.data.id)
   } else {
-    isActive.value = true
+    documentsStore.addDocument({
+      id: props.data.id,
+      label: props.data.label,
+      content: '',
+      isActive: true,
+    })
   }
 }
 </script>
