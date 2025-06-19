@@ -21,3 +21,10 @@ export interface TreeNode {
   path?: string
   children?: TreeNode[]
 }
+
+export interface Document {
+  id: number
+  label: string
+  isOpen: boolean
+  content: string
+}

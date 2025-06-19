@@ -19,7 +19,7 @@ defineProps<Props>()
 
 <style scoped>
 .active-route-item {
-  border-left: 2px solid #0078d4;
+  border-left: 2px solid var(--vscode-selected-blue);
 }
 
 .route-icon {

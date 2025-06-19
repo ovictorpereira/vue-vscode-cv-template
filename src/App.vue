@@ -3,6 +3,7 @@
   <main class="appbody">
     <RoutesBar />
     <SidebarRouteView />
+    <DocTabs />
   </main>
 </template>
 
@@ -10,6 +11,7 @@
 import TaskBar from '@/components/taskbar/TaskBar.vue'
 import RoutesBar from '@/components/routesbar/RoutesBar.vue'
 import SidebarRouteView from './components/sidebar/SidebarRouteView.vue'
+import DocTabs from './components/doctabs/DocTabs.vue'
 </script>
 
 <style>
