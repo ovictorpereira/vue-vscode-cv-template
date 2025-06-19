@@ -5,9 +5,20 @@
         v-for="(item, index) in documents"
         :key="index"
         :class="{ 'active-tab': item.isOpen }"
-        @click="documentsStore.openDocument(item.id)"
+        @click="openDocument(item.id)"
       >
-        {{ item.label }}
+        <div class="tab-container">
+          <span>{{ item.label }}</span>
+
+          <div class="tab-close" @click="removeDocument(item.id)">
+            <svg width="9" height="9" viewBox="0 0 12 12">
+              <path
+                d="M7.5 6l3.7 3.7-1.5 1.5L6 7.5 2.3 11.2.8 9.7 4.5 6 .8 2.3 2.3.8 6 4.5 9.7.8l1.5 1.5L7.5 6z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -19,6 +30,14 @@ import { useDocumentsStore } from '@/stores/documents'
 
 const documentsStore = useDocumentsStore()
 const documents = computed(() => documentsStore.documents)
+
+const openDocument = (id: number) => {
+  documentsStore.openDocument(id)
+}
+
+const removeDocument = (id: number) => {
+  documentsStore.removeDocument(id)
+}
 </script>
 
 <style scoped>
@@ -39,7 +58,7 @@ const documents = computed(() => documentsStore.documents)
 .tabs li {
   display: inline-block;
   font-size: 14px;
-  padding: 6px 12px;
+  padding: 7px 6px 7px 12px;
   margin-bottom: -1px;
   cursor: pointer;
   border: 1px solid transparent;
@@ -47,6 +66,32 @@ const documents = computed(() => documentsStore.documents)
   border-top-left-radius: 0.1rem;
   border-top-right-radius: 0.1rem;
   color: var(--vscode-inactive-icon);
+}
+
+.tab-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tab-close {
+  margin-left: 6px;
+  padding: 0px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+li:not(.active-tab) .tab-close svg {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+li:hover .tab-close svg {
+  opacity: 1;
+}
+
+.tab-close:hover {
+  background-color: #313232;
 }
 
 .tabs li:hover {

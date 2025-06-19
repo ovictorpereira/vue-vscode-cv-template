@@ -31,8 +31,16 @@ export const useDocumentsStore = defineStore('documents', () => {
     }
   }
 
+  const removeDocument = (id: number) => {
+    const index = documents.value.findIndex((doc) => doc.id === id)
+    if (index !== -1) {
+      documents.value.splice(index, 1)
+    }
+  }
+
   return {
     openDocument,
+    removeDocument,
     documents,
   }
 })
