@@ -55,6 +55,7 @@ const removeDocument = (id: number) => {
   overflow-y: hidden;
   position: relative;
   max-width: 100%;
+  background-color: var(--vscode-background);
 }
 
 .tabs::-webkit-scrollbar {
