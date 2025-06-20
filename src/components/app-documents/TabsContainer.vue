@@ -1,27 +1,24 @@
 <template>
-  <div class="documents">
-    <ul class="tabs">
-      <li
-        v-for="(item, index) in documents"
-        :key="index"
-        :class="{ 'active-tab': item.isActive }"
-        @click="openDocument(item.id)"
-      >
-        <div class="tab-container">
-          <span>{{ item.label }}</span>
+  <ul class="tabs">
+    <li
+      v-for="(item, index) in documents"
+      :key="index"
+      class="tab-item"
+      :class="{ 'active-tab': item.isActive }"
+      @click="openDocument(item.id)"
+    >
+      <span>{{ item.label }}</span>
 
-          <div class="tab-close" @click="removeDocument(item.id)">
-            <svg width="9" height="9" viewBox="0 0 12 12">
-              <path
-                d="M7.5 6l3.7 3.7-1.5 1.5L6 7.5 2.3 11.2.8 9.7 4.5 6 .8 2.3 2.3.8 6 4.5 9.7.8l1.5 1.5L7.5 6z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
+      <div class="tab-close" @click.stop="removeDocument(item.id)">
+        <svg width="9" height="9" viewBox="0 0 12 12">
+          <path
+            d="M7.5 6l3.7 3.7-1.5 1.5L6 7.5 2.3 11.2.8 9.7 4.5 6 .8 2.3 2.3.8 6 4.5 9.7.8l1.5 1.5L7.5 6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
@@ -41,22 +38,50 @@ const removeDocument = (id: number) => {
 </script>
 
 <style scoped>
-.documents {
+/* :deep(.tabs-container) {
   display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: var(--vscode-tab-background);
-}
+  width: 100%;
+  overflow: hidden;
+} */
 
 .tabs {
-  border-bottom: 1px solid var(--vscode-border);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--vscode-background);
+  border-bottom: 1px solid var(--vscode-border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  max-width: 100%;
 }
 
-.tabs li {
-  display: inline-block;
+.tabs::-webkit-scrollbar {
+  height: 6px;
+  background: transparent;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: rgba(121, 121, 121, 0.4);
+  border-radius: 3px;
+}
+
+.tabs::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.7);
+}
+
+.tabs::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0; /* Impede que as abas encolham */
+
+  list-style: none;
   font-size: 14px;
   padding: 7px 6px 7px 12px;
   margin-bottom: -1px;
@@ -66,12 +91,6 @@ const removeDocument = (id: number) => {
   border-top-left-radius: 0.1rem;
   border-top-right-radius: 0.1rem;
   color: var(--vscode-inactive-icon);
-}
-
-.tab-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 .tab-close {

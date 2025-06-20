@@ -31,8 +31,10 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  max-width: 1600px;
+  width: 1600px;
+  max-width: 100%;
   color: var(--vscode-foreground);
+  position: relative;
 }
 
 .custom-popper-class {

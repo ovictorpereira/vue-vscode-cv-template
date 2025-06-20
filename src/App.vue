@@ -3,7 +3,7 @@
   <main class="appbody">
     <RoutesBar />
     <SidebarRouteView />
-    <DocTabs />
+    <AppDocuments />
   </main>
 </template>
 
@@ -11,7 +11,7 @@
 import TaskBar from '@/components/taskbar/TaskBar.vue'
 import RoutesBar from '@/components/routesbar/RoutesBar.vue'
 import SidebarRouteView from './components/sidebar/SidebarRouteView.vue'
-import DocTabs from './components/doctabs/DocTabs.vue'
+import AppDocuments from './components/app-documents/AppDocuments.vue'
 </script>
 
 <style>
@@ -19,6 +19,7 @@ import DocTabs from './components/doctabs/DocTabs.vue'
   display: flex;
   flex-direction: row;
   height: 100%;
+  width: 100%;
   background-color: var(--vscode-background);
 }
 </style>
