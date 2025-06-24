@@ -4,6 +4,12 @@
     :class="{ 'terminalbar-border': terminalIsVisible }"
     :style="{ height: terminalIsVisible ? `${terminalHeight}px` : `5px` }"
   >
+    <TerminalHeader v-if="terminalIsVisible" />
+
+    <div class="terminal-content" v-if="terminalIsVisible">
+      <TerminalProblems v-if="activeTab === 'problems'" />
+    </div>
+
     <div
       class="dragbar dragbar-top"
       :class="{ dragging: isDragging }"
@@ -14,10 +20,15 @@
 </template>
 
 <script lang="ts" setup>
+import TerminalHeader from './TerminalHeader.vue'
+import TerminalProblems from './tabs/TerminalProblems.vue'
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
 
 const templateStore = useTemplateStore()
+
+const activeTab = computed(() => templateStore.terminalConfig.activeTab)
+
 const terminalIsVisible = computed(() => templateStore.terminalConfig.isVisible)
 const terminalHeight = computed(() => templateStore.terminalConfig.height)
 
@@ -83,5 +94,9 @@ onUnmounted(() => {
 
 .terminalbar-border {
   border: 1px solid var(--vscode-border);
+}
+
+.terminal-content {
+  flex: 1;
 }
 </style>

@@ -1,12 +1,13 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-import type { SidebarConfig, TerminalConfig, ConfigKey } from '@/types'
+import type { SidebarConfig, TerminalConfig, ConfigKey, TerminalTabOption } from '@/types'
 
 export const useTemplateStore = defineStore('template', () => {
   const terminalConfig = ref<TerminalConfig>({
     height: 200,
     isVisible: true,
+    activeTab: 'terminal',
   })
 
   const sidebarConfig = ref<SidebarConfig>({
@@ -28,6 +29,10 @@ export const useTemplateStore = defineStore('template', () => {
     terminalConfig.value.height = height
   }
 
+  const setTerminalActiveTab = (option: TerminalTabOption) => {
+    terminalConfig.value.activeTab = option
+  }
+
   const setSidebarWidth = (width: number) => {
     sidebarConfig.value.width = width
   }
@@ -38,6 +43,7 @@ export const useTemplateStore = defineStore('template', () => {
     toggleVisibility,
     setVisibility,
     setTerminalHeight,
+    setTerminalActiveTab,
     setSidebarWidth,
   }
 })

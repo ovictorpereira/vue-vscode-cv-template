@@ -6,7 +6,10 @@ export interface SidebarConfig {
 export interface TerminalConfig {
   height: number
   isVisible: boolean
+  activeTab: TerminalTabOption
 }
+
+export type TerminalTabOption = 'problems' | 'terminal'
 
 export type ConfigKey = 'sidebar' | 'terminal'
 
