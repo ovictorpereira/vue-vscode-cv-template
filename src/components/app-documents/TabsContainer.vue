@@ -38,12 +38,6 @@ const removeDocument = (id: number) => {
 </script>
 
 <style scoped>
-/* :deep(.tabs-container) {
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-} */
-
 .tabs {
   display: flex;
   flex-direction: row;
@@ -80,7 +74,7 @@ const removeDocument = (id: number) => {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-shrink: 0; /* Impede que as abas encolham */
+  flex-shrink: 0;
 
   list-style: none;
   font-size: 14px;

@@ -30,10 +30,12 @@ export const useDocumentsStore = defineStore('documents', () => {
 
   const removeDocument = (id: number) => {
     const index = documents.value.findIndex((doc) => doc.id === id)
+    let isActive = false
     if (index !== -1) {
+      isActive = documents.value[index].isActive
       documents.value.splice(index, 1)
     }
-    if (index - 1 >= 0) {
+    if (index - 1 >= 0 && isActive) {
       documents.value[index - 1].isActive = true
     }
   }
