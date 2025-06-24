@@ -8,6 +8,7 @@
 
     <div class="terminal-content" v-if="terminalIsVisible">
       <TerminalProblems v-if="activeTab === 'problems'" />
+      <TerminalShell v-else-if="activeTab === 'terminal'" />
     </div>
 
     <TerminalDragbar />
@@ -18,15 +19,15 @@
 import TerminalDragbar from './TerminalDragbar.vue'
 import TerminalHeader from './TerminalHeader.vue'
 import TerminalProblems from './tabs/TerminalProblems.vue'
+import TerminalShell from './tabs/TerminalShell.vue'
 import { computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
 
 const templateStore = useTemplateStore()
 
-const activeTab = computed(() => templateStore.terminalConfig.activeTab)
-
 const terminalIsVisible = computed(() => templateStore.terminalConfig.isVisible)
 const terminalHeight = computed(() => templateStore.terminalConfig.height)
+const activeTab = computed(() => templateStore.terminalConfig.activeTab)
 </script>
 
 <style scoped>
@@ -45,5 +46,6 @@ const terminalHeight = computed(() => templateStore.terminalConfig.height)
 
 .terminal-content {
   flex: 1;
+  overflow: auto;
 }
 </style>

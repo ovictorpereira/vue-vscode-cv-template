@@ -10,6 +10,15 @@
         {{ option.label }}
       </li>
     </ul>
+
+    <div class="terminal-close" @click.stop="templateStore.setVisibility('terminal', false)">
+      <svg width="9" height="9" viewBox="0 0 12 12">
+        <path
+          d="M7.5 6l3.7 3.7-1.5 1.5L6 7.5 2.3 11.2.8 9.7 4.5 6 .8 2.3 2.3.8 6 4.5 9.7.8l1.5 1.5L7.5 6z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -35,6 +44,7 @@ const activeTab = computed<TerminalTabOption>(() => templateStore.terminalConfig
   align-items: center;
   justify-content: space-between;
   height: 40px;
+  padding: 0 16px;
 }
 .terminal-header-options {
   display: flex;
@@ -43,7 +53,6 @@ const activeTab = computed<TerminalTabOption>(() => templateStore.terminalConfig
   font-size: 11px;
   gap: 20px;
   color: var(--vscode-inactive-icon);
-  margin: 0 0 0 20px;
   padding: 0;
 }
 .terminal-header-options li {
@@ -58,5 +67,18 @@ const activeTab = computed<TerminalTabOption>(() => templateStore.terminalConfig
 
 .terminal-header-options li.active {
   border-bottom: 1.6px solid var(--vscode-selected-blue);
+}
+
+.terminal-close {
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-close:hover {
+  background-color: var(--vscode-icon-hover);
 }
 </style>

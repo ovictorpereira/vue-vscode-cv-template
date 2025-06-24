@@ -5,7 +5,7 @@ import type { SidebarConfig, TerminalConfig, ConfigKey, TerminalTabOption } from
 
 export const useTemplateStore = defineStore('template', () => {
   const terminalConfig = ref<TerminalConfig>({
-    height: 200,
+    height: 240,
     isVisible: true,
     activeTab: 'terminal',
   })
