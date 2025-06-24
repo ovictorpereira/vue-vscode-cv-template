@@ -33,6 +33,9 @@ export const useDocumentsStore = defineStore('documents', () => {
     if (index !== -1) {
       documents.value.splice(index, 1)
     }
+    if (index - 1 >= 0) {
+      documents.value[index - 1].isActive = true
+    }
   }
 
   return {
