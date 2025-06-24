@@ -1,13 +1,11 @@
 <template>
   <div
-    class="sidebar-route-view"
-    :class="{ 'sidebar-route-view-border': sidebarIsVisible }"
-    :style="{ width: sidebarIsVisible ? `${sidebarWidth}px` : `5px` }"
+    class="terminalbar"
+    :class="{ 'terminalbar-border': terminalIsVisible }"
+    :style="{ height: terminalIsVisible ? `${terminalHeight}px` : `5px` }"
   >
-    <RouterView v-if="sidebarIsVisible" />
-
     <div
-      class="dragbar dragbar-right"
+      class="dragbar dragbar-top"
       :class="{ dragging: isDragging }"
       @mousedown="startDrag"
       @touchstart="startDrag"
@@ -20,8 +18,8 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
 
 const templateStore = useTemplateStore()
-const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
-const sidebarWidth = computed(() => templateStore.sidebarConfig.width)
+const terminalIsVisible = computed(() => templateStore.terminalConfig.isVisible)
+const terminalHeight = computed(() => templateStore.terminalConfig.height)
 
 const isDragging = ref<boolean>(false)
 
@@ -34,23 +32,22 @@ const startDrag = (e: MouseEvent | TouchEvent) => {
 const onDrag = (e: MouseEvent | TouchEvent) => {
   if (!isDragging.value) return
 
-  let startWidth = 0
+  const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY
 
-  const windowWidth = window.innerWidth
-  const app = document.getElementById('app')
-  const appWidth = app ? app.offsetWidth : window.innerWidth
-  const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX
+  // Calcula o tamanho do terminal a partir da parte inferior da tela
+  const windowHeight = window.innerHeight
+  const result = windowHeight - clientY
 
-  if (appWidth == 1600) startWidth = (windowWidth - 1600) / 2 + 45
-  else startWidth = 65
+  const minHeight = 70
+  const maxHeight = windowHeight * 0.8
+  const clampedHeight = Math.max(minHeight, Math.min(result, maxHeight))
 
-  const result = clientX - startWidth
-  if (result > 180) {
-    templateStore.setVisibility('sidebar', true)
-    templateStore.setSidebarWidth(result)
+  if (result > minHeight) {
+    templateStore.setVisibility('terminal', true)
+    templateStore.setTerminalHeight(clampedHeight)
   }
 
-  if (result < 90) templateStore.setVisibility('sidebar', false)
+  if (result < 50) templateStore.setVisibility('terminal', false)
 }
 
 const stopDrag = () => {
@@ -76,8 +73,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.sidebar-route-view {
-  height: 100%;
+.terminalbar {
+  width: 100%;
   background-color: var(--vscode-background);
   position: relative;
   display: flex;
@@ -85,7 +82,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sidebar-route-view-border {
+.terminalbar-border {
   border: 1px solid var(--vscode-border);
 }
 </style>

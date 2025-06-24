@@ -55,12 +55,7 @@ body {
 }
 
 .dragbar {
-  width: 3px;
-  cursor: ew-resize;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
   background-color: transparent;
   transition: background-color 0.1s ease;
   z-index: 99;
@@ -70,6 +65,24 @@ body {
 .dragging {
   background-color: #0078d4;
   transition-delay: 0.4s;
+}
+
+.dragbar-right {
+  cursor: ew-resize;
+  width: 3px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dragbar-top {
+  cursor: ns-resize;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 @media (max-width: 400px) {
