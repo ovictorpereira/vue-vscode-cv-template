@@ -4,7 +4,7 @@
     <RoutesBar />
     <SidebarRouteView />
 
-    <div class="vertical-container">
+    <div class="main-container">
       <AppDocuments />
       <TerminalBar />
     </div>
@@ -13,9 +13,9 @@
 
 <script setup lang="ts">
 import TaskBar from '@/components/taskbar/TaskBar.vue'
-import RoutesBar from '@/components/routesbar/RoutesBar.vue'
-import SidebarRouteView from './components/sidebar/SidebarRouteView.vue'
-import AppDocuments from './components/app-documents/AppDocuments.vue'
+import RoutesBar from '@/components/sidebar/routesbar/RoutesBar.vue'
+import SidebarRouteView from '@/components/sidebar/routerviewbar/SidebarRouteView.vue'
+import AppDocuments from '@/components/app-documents/AppDocuments.vue'
 import TerminalBar from '@/components/terminalbar/TerminalBar.vue'
 </script>
 
@@ -28,7 +28,7 @@ import TerminalBar from '@/components/terminalbar/TerminalBar.vue'
   background-color: var(--vscode-background);
 }
 
-.vertical-container {
+.main-container {
   display: flex;
   flex-direction: column;
   flex: 1;

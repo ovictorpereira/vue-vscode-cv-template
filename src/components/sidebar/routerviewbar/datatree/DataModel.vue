@@ -31,7 +31,7 @@ import { useDataTreeStore } from '@/stores/data-tree'
 import { useDocumentsStore } from '@/stores/documents'
 import FolderIcon from './icons/FolderIcon.vue'
 import FileIcon from './icons/FileIcon.vue'
-import DataModel from '@/components/sidebar/datatree/DataModel.vue'
+import DataModel from '@/components/sidebar/routerviewbar/datatree/DataModel.vue'
 
 const dataTreeStore = useDataTreeStore()
 const documentsStore = useDocumentsStore()

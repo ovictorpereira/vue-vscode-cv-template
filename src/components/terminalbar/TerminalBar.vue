@@ -34,7 +34,6 @@ const onDrag = (e: MouseEvent | TouchEvent) => {
 
   const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY
 
-  // Calcula o tamanho do terminal a partir da parte inferior da tela
   const windowHeight = window.innerHeight
   const result = windowHeight - clientY
 

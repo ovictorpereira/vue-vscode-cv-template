@@ -11,9 +11,9 @@
 
 <script lang="ts" setup>
 import { onMounted, computed } from 'vue'
-import RouteHeader from '@/components/sidebar/RouteHeader.vue'
-import ProjectRoot from '@/components/sidebar/datatree/ProjectRoot.vue'
-import DataModel from '@/components/sidebar/datatree/DataModel.vue'
+import RouteHeader from '@/components/sidebar/routerviewbar/RouteHeader.vue'
+import ProjectRoot from '@/components/sidebar/routerviewbar/datatree/ProjectRoot.vue'
+import DataModel from '@/components/sidebar/routerviewbar/datatree/DataModel.vue'
 
 import { useDataTreeStore } from '@/stores/data-tree'
 

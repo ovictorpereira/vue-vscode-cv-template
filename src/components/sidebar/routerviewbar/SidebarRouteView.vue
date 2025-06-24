@@ -83,6 +83,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .sidebar-route-view-border {
