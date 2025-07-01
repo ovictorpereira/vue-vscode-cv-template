@@ -1,6 +1,12 @@
 <template>
   <router-link :to="path" custom v-slot="{ isActive }">
-    <div :class="isActive ? 'route-item active-route-item' : 'route-item'">
+    <div
+      :class="isActive ? 'route-item active-route-item' : 'route-item'"
+      v-tooltip="{
+        content: tooltip,
+        ...tbTooltip,
+      }"
+    >
       <component :is="iconComponent" :isActive="isActive" />
     </div>
   </router-link>
@@ -12,9 +18,15 @@ import { type Component } from 'vue'
 interface Props {
   path: string
   iconComponent: Component
+  tooltip: string
 }
 
 defineProps<Props>()
+
+const tbTooltip = {
+  theme: 'custom-tooltip',
+  placement: 'right',
+}
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
   <div class="routes-bar">
-    <RouteItem path="/" :icon-component="ExplorerIcon" />
-    <RouteItem path="/search" :icon-component="SearchIcon" />
+    <RouteItem path="/" :icon-component="ExplorerIcon" tooltip="Explorer (Ctrl + Shift + E)" />
+    <RouteItem path="/search" :icon-component="SearchIcon" tooltip="Search (Ctrl + Shift + F)" />
   </div>
 </template>
 
