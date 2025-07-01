@@ -3,9 +3,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref, watch } from 'vue'
 import MarkdownIt from 'markdown-it'
 import markdownFile from '@/markdown/RESUME.md?raw'
+
+interface Props {
+  content: string | undefined
+}
+
+const props = defineProps<Props>()
 
 const md = new MarkdownIt()
 
@@ -15,9 +21,19 @@ const renderMarkdown = (mdContent: string) => {
   return md.render(mdContent)
 }
 
-onMounted(() => {
-  mdContent.value = renderMarkdown(markdownFile)
-})
+watch(
+  () => props.content,
+  (content) => {
+    mdContent.value = ''
+    if (!content) mdContent.value = renderMarkdown(markdownFile)
+    else {
+      mdContent.value = renderMarkdown(props.content || '')
+    }
+  },
+  { immediate: true },
+)
+
+// `https://api.github.com/repos/${owner}/${repo}/readme
 </script>
 
 <style scoped></style>

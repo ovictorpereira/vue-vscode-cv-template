@@ -1,17 +1,42 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import axios from 'axios'
 import type { Document } from '@/types'
 export const useDocumentsStore = defineStore('documents', () => {
   const documents = ref<Document[]>([])
 
-  const addDocument = (document: Document) => {
+  const documentIsLoading = ref(false)
+
+  const addDocument = async (document: Document) => {
     closeAllDocuments()
     const existingDocument = documents.value.find((doc) => doc.id === document.id)
     if (existingDocument) {
       existingDocument.isActive = true
     } else {
-      documents.value.push(document)
+      const content = await addGithubContent(document.url || '')
+      documents.value.push({
+        ...document,
+        content: content,
+        isActive: true,
+      })
     }
+  }
+
+  const addGithubContent = async (url: string) => {
+    if (!url) {
+      return ''
+    }
+    documentIsLoading.value = true
+
+    const resp = await axios.get(`${url}/readme`)
+    const downloadUrl = resp.data.download_url || null
+    if (!downloadUrl) {
+      documentIsLoading.value = false
+      return ''
+    }
+    const content = await axios.get(downloadUrl)
+    documentIsLoading.value = false
+    return content.data
   }
 
   const closeAllDocuments = () => {
@@ -41,6 +66,7 @@ export const useDocumentsStore = defineStore('documents', () => {
   }
 
   return {
+    documentIsLoading,
     addDocument,
     openDocument,
     removeDocument,

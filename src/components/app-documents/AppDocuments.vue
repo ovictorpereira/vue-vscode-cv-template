@@ -4,7 +4,7 @@
     <div class="tab-content">
       <NoneDocument v-if="documents.length === 0" />
 
-      <ReadmeReader v-else />
+      <ReadmeReader :content="activeDocument?.content" v-else />
     </div>
   </div>
 </template>
@@ -19,9 +19,9 @@ import { useDocumentsStore } from '@/stores/documents'
 const documentsStore = useDocumentsStore()
 const documents = computed(() => documentsStore.documents)
 
-// const showReadme = computed(
-//   () => documents.value.length > 0 && documents.value.some((doc) => doc.id === 3 && doc.isActive),
-// )
+const activeDocument = computed(() => {
+  return documents.value.find((doc) => doc.isActive)
+})
 </script>
 
 <style scoped>

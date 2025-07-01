@@ -46,8 +46,8 @@ function nodeAction() {
     dataTreeStore.toggleNodeOpen(props.data.id)
   } else {
     documentsStore.addDocument({
-      id: props.data.id,
-      label: props.data.label,
+      ...props.data,
+      content: '',
       isActive: true,
     })
   }

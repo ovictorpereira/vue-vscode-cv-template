@@ -22,11 +22,14 @@ export interface TreeNode {
   isOpen?: boolean
   icon?: string
   path?: string
+  url?: string
   children?: TreeNode[]
 }
 
 export interface Document {
   id: number
   label: string
+  url?: string
+  content: string
   isActive: boolean
 }
