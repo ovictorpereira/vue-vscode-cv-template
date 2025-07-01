@@ -1,5 +1,5 @@
 <template>
-  <ul class="tabs">
+  <ul class="tabs" :class="{ 'tabs-has-items': documents.length > 0 }">
     <li
       v-for="(item, index) in documents"
       :key="index"
@@ -50,6 +50,10 @@ const removeDocument = (id: number) => {
   max-width: 100%;
   background-color: var(--vscode-background);
   /* border-bottom: 1px solid var(--vscode-border); */
+}
+
+.tabs-has-items {
+  min-height: 35px;
 }
 
 .tabs::-webkit-scrollbar {

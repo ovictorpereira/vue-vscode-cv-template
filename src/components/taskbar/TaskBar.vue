@@ -25,6 +25,7 @@ import WindowControls from '@/components/taskbar/WindowControls.vue'
 <style scoped>
 .task-bar {
   height: 36px;
+  min-height: 36px;
   background-color: var(--vscode-background);
   color: #cccccc;
   display: flex;

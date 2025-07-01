@@ -29,5 +29,4 @@ export interface Document {
   id: number
   label: string
   isActive: boolean
-  content: string
 }

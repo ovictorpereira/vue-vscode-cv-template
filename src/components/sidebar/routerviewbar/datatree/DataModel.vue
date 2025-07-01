@@ -48,7 +48,6 @@ function nodeAction() {
     documentsStore.addDocument({
       id: props.data.id,
       label: props.data.label,
-      content: '',
       isActive: true,
     })
   }
