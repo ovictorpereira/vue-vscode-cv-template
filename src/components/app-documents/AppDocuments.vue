@@ -28,5 +28,6 @@ const documents = computed(() => documentsStore.documents)
 
 .tab-content {
   flex: 1;
+  /* border-top: 1px solid var(--vscode-border); */
 }
 </style>

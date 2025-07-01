@@ -44,12 +44,12 @@ const removeDocument = (id: number) => {
   width: 100%;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid var(--vscode-border);
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
   max-width: 100%;
   background-color: var(--vscode-background);
+  /* border-bottom: 1px solid var(--vscode-border); */
 }
 
 .tabs::-webkit-scrollbar {
@@ -79,13 +79,15 @@ const removeDocument = (id: number) => {
   list-style: none;
   font-size: 14px;
   padding: 7px 6px 7px 12px;
-  margin-bottom: -1px;
   cursor: pointer;
   border: 1px solid transparent;
   border-right: 1px solid var(--vscode-border);
   border-top-left-radius: 0.1rem;
   border-top-right-radius: 0.1rem;
   color: var(--vscode-inactive-icon);
+  position: relative;
+  margin-bottom: 0;
+  z-index: 1;
 }
 
 .tab-close {
@@ -118,5 +120,8 @@ li:hover .tab-close svg {
   background-color: var(--vscode-tab-background) !important;
   border-color: var(--vscode-selected-blue) var(--vscode-border) var(--vscode-tab-background)
     var(--vscode-border) !important;
+  border-bottom: 2px solid var(--vscode-tab-background) !important;
+  margin-bottom: -2px;
+  z-index: 2;
 }
 </style>
