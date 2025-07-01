@@ -124,7 +124,7 @@ onMounted(() => {
 <style scoped>
 .terminal-shell {
   height: 100%;
-  background-color: #1e1e1e;
+  background-color: var(--vscode-background);
   /* color: #cccccc; */
   font-family: 'Consolas', 'Courier New', monospace;
   font-size: 14px;

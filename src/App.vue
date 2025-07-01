@@ -9,6 +9,7 @@
       <TerminalBar />
     </div>
   </main>
+  <FooterBar />
 </template>
 
 <script setup lang="ts">
@@ -17,6 +18,7 @@ import RoutesBar from '@/components/sidebar/routesbar/RoutesBar.vue'
 import SidebarRouteView from '@/components/sidebar/routerviewbar/SidebarRouteView.vue'
 import AppDocuments from '@/components/app-documents/AppDocuments.vue'
 import TerminalBar from '@/components/terminalbar/TerminalBar.vue'
+import FooterBar from '@/components/footerbar/FooterBar.vue'
 </script>
 
 <style>
