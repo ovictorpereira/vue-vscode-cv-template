@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   height: 25px;
+  min-height: 25px;
   background-color: var(--vscode-background);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;

@@ -25,6 +25,7 @@ import FooterBar from '@/components/footerbar/FooterBar.vue'
 .appbody {
   display: flex;
   flex-direction: row;
+  overflow: auto;
   height: 100%;
   width: 100%;
   background-color: var(--vscode-background);
@@ -35,5 +36,6 @@ import FooterBar from '@/components/footerbar/FooterBar.vue'
   flex-direction: column;
   flex: 1;
   height: 100%;
+  overflow: auto;
 }
 </style>
