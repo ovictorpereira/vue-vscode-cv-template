@@ -56,24 +56,6 @@ const removeDocument = (id: number) => {
   min-height: 35px;
 }
 
-.tabs::-webkit-scrollbar {
-  height: 6px;
-  background: transparent;
-}
-
-.tabs::-webkit-scrollbar-thumb {
-  background: rgba(121, 121, 121, 0.4);
-  border-radius: 3px;
-}
-
-.tabs::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 100, 100, 0.7);
-}
-
-.tabs::-webkit-scrollbar-corner {
-  background: transparent;
-}
-
 .tab-item {
   display: flex;
   align-items: center;
