@@ -3,7 +3,7 @@
     class="data-model"
     :class="{
       folder: data.type === 'folder',
-      file: data.type === 'file',
+      file: data.type !== 'folder',
     }"
     @click.stop="nodeAction"
   >

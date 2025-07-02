@@ -13,7 +13,7 @@ export type TerminalTabOption = 'problems' | 'terminal'
 
 export type ConfigKey = 'sidebar' | 'terminal'
 
-export type DataType = 'folder' | 'file'
+export type DataType = 'folder' | 'github' | 'readme'
 
 export interface TreeNode {
   id: number
@@ -31,5 +31,6 @@ export interface Document {
   label: string
   url?: string
   content: string
+  type: DataType
   isActive: boolean
 }

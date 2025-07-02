@@ -23,7 +23,7 @@ export const useDataTreeStore = defineStore('data-tree', () => {
     {
       id: 3,
       label: 'README.md',
-      type: 'file',
+      type: 'readme',
       icon: 'info',
       path: '/README.md',
     },
@@ -82,14 +82,13 @@ export const useDataTreeStore = defineStore('data-tree', () => {
         url: repo.url,
         language: repo.language,
         icon: 'github',
-        type: 'file' as DataType,
+        type: 'github' as DataType,
         isOpen: false,
         children: [],
       }))
 
       const githubNodeId = 2
       populateNodeChildren(githubNodeId, repos)
-      console.log(dataTree.value)
     } catch (error) {
       console.error('Error fetching GitHub repositories:', error)
     }

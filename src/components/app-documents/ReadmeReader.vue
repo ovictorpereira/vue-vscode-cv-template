@@ -11,6 +11,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/github-dark.css' // ou outro tema
 
 interface Props {
+  readme: boolean
   content: string | undefined
 }
 
@@ -40,9 +41,9 @@ watch(
   () => props.content,
   (content) => {
     mdContent.value = ''
-    if (!content) mdContent.value = renderMarkdown(markdownFile)
+    if (props.readme) mdContent.value = renderMarkdown(markdownFile)
     else {
-      mdContent.value = renderMarkdown(props.content || '')
+      mdContent.value = renderMarkdown(content || '')
     }
   },
   { immediate: true },
