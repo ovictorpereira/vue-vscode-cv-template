@@ -13,12 +13,17 @@ export const useDocumentsStore = defineStore('documents', () => {
     if (existingDocument) {
       existingDocument.isActive = true
     } else {
-      const content = await addGithubContent(document.url || '')
       documents.value.push({
         ...document,
-        content: content,
+        content: '',
         isActive: true,
       })
+      const content = await addGithubContent(document.url || '')
+      if (content) {
+        documents.value[documents.value.length - 1].content = content
+      } else {
+        documents.value[documents.value.length - 1].content = 'No content available'
+      }
     }
   }
 

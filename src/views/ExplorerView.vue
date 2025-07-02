@@ -1,5 +1,7 @@
 <template>
   <RouteHeader title="EXPLORER" />
+
+  <LoadingBar />
   <ProjectRoot :data="projectRoot" />
 
   <div class="folder-tree" v-if="rootIsOpen">
@@ -14,6 +16,7 @@ import { onMounted, computed } from 'vue'
 import RouteHeader from '@/components/sidebar/routerviewbar/RouteHeader.vue'
 import ProjectRoot from '@/components/sidebar/routerviewbar/datatree/ProjectRoot.vue'
 import DataModel from '@/components/sidebar/routerviewbar/datatree/DataModel.vue'
+import LoadingBar from '@/components/sidebar/routerviewbar/LoadingBar.vue'
 
 import { useDataTreeStore } from '@/stores/data-tree'
 
