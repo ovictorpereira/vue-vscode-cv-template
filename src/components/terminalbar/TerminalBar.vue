@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import TerminalDragbar from './TerminalDragbar.vue'
-import TerminalHeader from './TerminalHeader.vue'
+import TerminalDragbar from './components/TerminalDragbar.vue'
+import TerminalHeader from './components/TerminalHeader.vue'
 import TerminalProblems from './tabs/TerminalProblems.vue'
 import TerminalShell from './tabs/TerminalShell.vue'
 import { computed } from 'vue'
