@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import RouteItem from './RouteItem.vue'
-import ExplorerIcon from './icons/ExplorerIcon.vue'
-import SearchIcon from './icons/SearchIcon.vue'
+import RouteItem from './components/RouteItem.vue'
+import ExplorerIcon from './components/icons/ExplorerIcon.vue'
+import SearchIcon from './components/icons/SearchIcon.vue'
 </script>
 
 <style scoped>

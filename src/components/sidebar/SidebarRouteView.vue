@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
-import SidebarDragbar from './SidebarDragbar.vue'
+import SidebarDragbar from './components/SidebarDragbar.vue'
 const templateStore = useTemplateStore()
 const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
 const sidebarWidth = computed(() => templateStore.sidebarConfig.width)

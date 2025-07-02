@@ -13,10 +13,10 @@
 
 <script lang="ts" setup>
 import { onMounted, computed } from 'vue'
-import RouteHeader from '@/components/sidebar/routerviewbar/RouteHeader.vue'
-import ProjectRoot from '@/components/sidebar/routerviewbar/datatree/ProjectRoot.vue'
-import DataModel from '@/components/sidebar/routerviewbar/datatree/DataModel.vue'
-import LoadingBar from '@/components/sidebar/routerviewbar/LoadingBar.vue'
+import RouteHeader from '@/components/sidebar/components/RouteHeader.vue'
+import ProjectRoot from '@/components/sidebar/components/datatree/ProjectRoot.vue'
+import DataModel from '@/components/sidebar/components/datatree/DataModel.vue'
+import LoadingBar from '@/components/sidebar/components/LoadingBar.vue'
 
 import { useDataTreeStore } from '@/stores/data-tree'
 
