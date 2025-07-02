@@ -2,11 +2,11 @@
   <div
     class="sidebar-route-view"
     :class="{ 'sidebar-route-view-border': sidebarIsVisible }"
-    :style="{ width: sidebarIsVisible ? `${sidebarWidth}px` : `5px` }"
+    :style="{ width: sidebarIsVisible ? `${sidebarWidth}px` : `0px` }"
   >
     <RouterView v-if="sidebarIsVisible" />
-    <SidebarDragbar />
   </div>
+  <SidebarDragbar />
 </template>
 
 <script lang="ts" setup>

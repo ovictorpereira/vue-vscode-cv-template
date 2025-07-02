@@ -33,8 +33,8 @@ const onDrag = (e: MouseEvent | TouchEvent) => {
   const appWidth = app ? app.offsetWidth : window.innerWidth
   const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX
 
-  if (isFullScreen.value) startWidth = 45
-  else if (appWidth == 1600) startWidth = (windowWidth - 1600) / 2 + 65
+  if (isFullScreen.value) startWidth = 55
+  else if (appWidth == 1600) startWidth = (windowWidth - 1600) / 2 + 69
   else startWidth = 65
 
   const result = clientX - startWidth

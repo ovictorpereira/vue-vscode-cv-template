@@ -38,7 +38,7 @@ body {
 }
 
 .dragbar {
-  position: absolute;
+  /* position: absolute; */
   background-color: transparent;
   transition: background-color 0.1s ease;
   z-index: 99;

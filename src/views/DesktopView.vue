@@ -33,13 +33,20 @@ const openVsCode = () => {
   align-items: center;
   width: 86px;
   gap: 5px;
-  font-size: 13px;
+  font-size: 12px;
   user-select: none;
-  cursor: pointer;
+  cursor: auto;
   text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  padding: 4px 0;
+}
+
+.desktop-icon:hover {
+  background-color: #80818042;
 }
 
 .desktop-icon img {
-  width: 56px;
+  width: 50px;
 }
 </style>
