@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { PROJECT_NAME, GITHUB_USERNAME } from '@/constants/constants'
 import type { TreeNode, DataType } from '@/types'
 import axios from 'axios'
+import { useDocumentsStore } from './documents'
 
 export const useDataTreeStore = defineStore('data-tree', () => {
   const projectRoot = ref<TreeNode>({
@@ -17,7 +18,7 @@ export const useDataTreeStore = defineStore('data-tree', () => {
       id: 2,
       label: 'github',
       type: 'folder',
-      isOpen: false,
+      isOpen: true,
       children: [],
     },
     {
@@ -68,6 +69,8 @@ export const useDataTreeStore = defineStore('data-tree', () => {
   }
 
   const getGithubRepos = async () => {
+    const documentsStore = useDocumentsStore()
+    documentsStore.documentIsLoading = true
     try {
       const response = await axios.get(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
       type GithubRepo = {
@@ -91,6 +94,8 @@ export const useDataTreeStore = defineStore('data-tree', () => {
       populateNodeChildren(githubNodeId, repos)
     } catch (error) {
       console.error('Error fetching GitHub repositories:', error)
+    } finally {
+      documentsStore.documentIsLoading = false
     }
   }
 

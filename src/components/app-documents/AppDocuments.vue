@@ -1,7 +1,7 @@
 <template>
   <div class="documents">
     <TabsContainer />
-    <div class="tab-content">
+    <div class="tab-content vertical-scrollbar">
       <NoneDocument v-if="documents.length === 0" />
 
       <ReadmeReader :content="activeDocument?.content" :readme="isReadmeActive" v-else />

@@ -1,5 +1,5 @@
 <template>
-  <div class="terminal-shell" @click.stop="commandInput?.focus()">
+  <div class="terminal-shell vertical-scrollbar" @click.stop="commandInput?.focus()">
     <div class="terminal-output">
       <div v-for="(line, index) in commandHistory" :key="index" class="terminal-line">
         <div class="prompt" v-if="line.isCommand">PS {{ TERMINAL_PATH }}&gt;</div>
