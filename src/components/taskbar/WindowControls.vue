@@ -8,26 +8,18 @@
 
     <div class="window-control" @click="toggleFullScreen">
       <svg width="16" height="16" viewBox="0 0 12 12" v-if="isFullScreen">
-        <rect
-          x="3"
-          y="1"
-          width="7"
-          height="7"
-          stroke="currentColor"
-          stroke-width="1"
-          rx="1"
-          fill="#181818"
-        />
+        <line x1="4" x2="9" y1="1" y2="1" stroke="currentColor" stroke-width="1" />
+        <line x1="9" x2="9" y1="1" y2="7" stroke="currentColor" stroke-width="1" />
 
         <rect
           x="1"
           y="3"
-          width="7"
-          height="7"
+          width="6"
+          height="6"
           stroke="currentColor"
           stroke-width="1"
           rx="1"
-          fill="#181818"
+          fill="transparent"
         />
       </svg>
 
