@@ -28,7 +28,7 @@
       </svg>
     </div>
 
-    <div class="window-control">
+    <div class="window-control window-control-close" @click="closeVsCode">
       <svg width="12" height="12" viewBox="0 0 12 12">
         <path
           d="M7.5 6l3.7 3.7-1.5 1.5L6 7.5 2.3 11.2.8 9.7 4.5 6 .8 2.3 2.3.8 6 4.5 9.7.8l1.5 1.5L7.5 6z"
@@ -44,8 +44,12 @@ import { useTemplateStore } from '@/stores/template'
 import { computed } from 'vue'
 const templateStore = useTemplateStore()
 const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
+
 const toggleFullScreen = () => {
   templateStore.vsCodeConfig.isFullScreen = !templateStore.vsCodeConfig.isFullScreen
+}
+const closeVsCode = () => {
+  templateStore.vsCodeConfig.isOpen = false
 }
 </script>
 

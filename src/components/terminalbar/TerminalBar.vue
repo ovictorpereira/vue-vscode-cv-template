@@ -4,14 +4,13 @@
     :class="{ 'terminalbar-border': terminalIsVisible }"
     :style="{ height: terminalIsVisible ? `${terminalHeight}px` : `5px` }"
   >
+    <TerminalDragbar />
     <TerminalHeader v-if="terminalIsVisible" />
 
     <div class="terminal-content" v-if="terminalIsVisible">
       <TerminalProblems v-if="activeTab === 'problems'" />
       <TerminalShell v-else-if="activeTab === 'terminal'" />
     </div>
-
-    <TerminalDragbar />
   </div>
 </template>
 
@@ -38,10 +37,11 @@ const activeTab = computed(() => templateStore.terminalConfig.activeTab)
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-bottom: 1px solid var(--vscode-border);
 }
 
 .terminalbar-border {
-  border: 1px solid var(--vscode-border);
+  border-top: 1px solid var(--vscode-border);
 }
 
 .terminal-content {
