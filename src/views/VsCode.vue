@@ -1,6 +1,6 @@
 <template>
   <div id="vscode-app" :class="{ 'vscode-app-is-fullscreen': isFullScreen }">
-    <TaskBar />
+    <TitleBar />
     <main class="vscode-appbody">
       <RoutesBar />
       <SidebarRouteView />
@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
-import TaskBar from '@/components/taskbar/TaskBar.vue'
+import TitleBar from '@/components/titlebar/TitleBar.vue'
 import RoutesBar from '@/components/sidebar/routesbar/RoutesBar.vue'
 import SidebarRouteView from '@/components/sidebar/routerviewbar/SidebarRouteView.vue'
 import AppDocuments from '@/components/app-documents/AppDocuments.vue'

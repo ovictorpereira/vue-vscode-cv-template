@@ -17,9 +17,9 @@ import TaskBar from '@/components/TaskBar.vue';
 </template>
 
 <script lang="ts" setup>
-import SearchBar from '@/components/taskbar/SearchBar.vue'
-import ToggleControls from '@/components/taskbar/ToggleControls.vue'
-import WindowControls from '@/components/taskbar/WindowControls.vue'
+import SearchBar from '@/components/titlebar/components/SearchBar.vue'
+import ToggleControls from '@/components/titlebar/components/ToggleControls.vue'
+import WindowControls from '@/components/titlebar/components/WindowControls.vue'
 </script>
 
 <style scoped>

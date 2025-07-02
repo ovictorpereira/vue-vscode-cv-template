@@ -27,8 +27,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
-import TerminalIcon from '@/components/taskbar/icons/TerminalIcon.vue'
-import SidebarIcon from '@/components/taskbar/icons/SidebarIcon.vue'
+import TerminalIcon from '@/components/titlebar/components/icons/TerminalIcon.vue'
+import SidebarIcon from '@/components/titlebar/components/icons/SidebarIcon.vue'
 
 const templateStore = useTemplateStore()
 const terminalIsVisible = computed(() => templateStore.terminalConfig.isVisible)
