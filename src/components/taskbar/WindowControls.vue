@@ -6,7 +6,7 @@
       </svg>
     </div>
 
-    <div class="window-control window-control-maximize">
+    <div class="window-control window-control-maximize" @click="toggleFullScreen">
       <svg width="16" height="16" viewBox="0 0 12 12">
         <path d="M2 2v8h8V2H2zm7 7H3V3h6v6z" fill="currentColor" />
       </svg>
@@ -22,6 +22,16 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useTemplateStore } from '@/stores/template'
+// import { computed } from 'vue'
+const templateStore = useTemplateStore()
+// const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
+const toggleFullScreen = () => {
+  templateStore.vsCodeConfig.isFullScreen = !templateStore.vsCodeConfig.isFullScreen
+}
+</script>
 
 <style scoped>
 .window-controls {

@@ -15,26 +15,9 @@ body,
 
 body {
   background-color: #f4f4f4;
-  /* font-family: 'Fira Code', monospace; */
-  /* font-family: 'Roboto', sans-serif; */
   font-family:
     'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Roboto', 'Helvetica Neue', sans-serif;
   margin: 0;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  width: 1600px;
-  max-width: 100%;
-  color: var(--vscode-foreground);
-  position: relative;
 }
 
 .custom-popper-class {
@@ -83,10 +66,4 @@ body {
   left: 0;
   right: 0;
   top: 0;
-}
-
-@media (max-width: 400px) {
-  body {
-    padding: 0;
-  }
 }

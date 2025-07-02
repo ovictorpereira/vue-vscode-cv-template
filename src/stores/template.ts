@@ -1,9 +1,20 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-import type { SidebarConfig, TerminalConfig, ConfigKey, TerminalTabOption } from '@/types'
+import type {
+  VsCodeConfig,
+  SidebarConfig,
+  TerminalConfig,
+  ConfigKey,
+  TerminalTabOption,
+} from '@/types'
 
 export const useTemplateStore = defineStore('template', () => {
+  const vsCodeConfig = ref<VsCodeConfig>({
+    isOpen: true,
+    isFullScreen: false,
+  })
+
   const terminalConfig = ref<TerminalConfig>({
     height: 240,
     isVisible: true,
@@ -38,6 +49,7 @@ export const useTemplateStore = defineStore('template', () => {
   }
 
   return {
+    vsCodeConfig,
     terminalConfig,
     sidebarConfig,
     toggleVisibility,

@@ -1,3 +1,8 @@
+export interface VsCodeConfig {
+  isOpen: boolean
+  isFullScreen: boolean
+}
+
 export interface SidebarConfig {
   width: number
   isVisible: boolean

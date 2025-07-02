@@ -1,6 +1,6 @@
 <template>
   <div
-    class="dragbar dragbar-top"
+    class="dragbar dragbar-right"
     :class="{ dragging: isDragging }"
     @mousedown="startDrag"
     @touchstart="startDrag"
@@ -26,23 +26,24 @@ const startDrag = (e: MouseEvent | TouchEvent) => {
 const onDrag = (e: MouseEvent | TouchEvent) => {
   if (!isDragging.value) return
 
-  const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY
+  let startWidth = 0
 
-  const difference = isFullScreen.value ? 28 : 42
+  const windowWidth = window.innerWidth
+  const app = document.getElementById('vscode-app')
+  const appWidth = app ? app.offsetWidth : window.innerWidth
+  const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX
 
-  const windowHeight = window.innerHeight
-  const result = windowHeight - clientY - difference
+  if (isFullScreen.value) startWidth = 45
+  else if (appWidth == 1600) startWidth = (windowWidth - 1600) / 2 + 65
+  else startWidth = 65
 
-  const minHeight = 70
-  const maxHeight = windowHeight * 0.8
-  const clampedHeight = Math.max(minHeight, Math.min(result, maxHeight))
-
-  if (result > minHeight) {
-    templateStore.setVisibility('terminal', true)
-    templateStore.setTerminalHeight(clampedHeight)
+  const result = clientX - startWidth
+  if (result > 180) {
+    templateStore.setVisibility('sidebar', true)
+    templateStore.setSidebarWidth(result)
   }
 
-  if (result < 50) templateStore.setVisibility('terminal', false)
+  if (result < 90) templateStore.setVisibility('sidebar', false)
 }
 
 const stopDrag = () => {
@@ -66,3 +67,5 @@ onUnmounted(() => {
   document.removeEventListener('touchend', stopDrag)
 })
 </script>
+
+<style scoped></style>
