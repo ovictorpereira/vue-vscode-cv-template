@@ -1,6 +1,6 @@
 import titleBar from '@/components/TaskBar.vue';
 <template>
-  <div class="title-bar">
+  <div class="title-bar" @dblclick="toggleFullScreen">
     <div class="titlebar-section options-section">
       <img src="@/assets/images/vscode.svg" id="vscode-logo" alt="VSCode Logo" />
     </div>
@@ -20,6 +20,12 @@ import titleBar from '@/components/TaskBar.vue';
 import SearchBar from '@/components/titlebar/components/SearchBar.vue'
 import ToggleControls from '@/components/titlebar/components/ToggleControls.vue'
 import WindowControls from '@/components/titlebar/components/WindowControls.vue'
+import { useTemplateStore } from '@/stores/template'
+
+const templateStore = useTemplateStore()
+const toggleFullScreen = () => {
+  templateStore.vsCodeConfig.isFullScreen = !templateStore.vsCodeConfig.isFullScreen
+}
 </script>
 
 <style scoped>

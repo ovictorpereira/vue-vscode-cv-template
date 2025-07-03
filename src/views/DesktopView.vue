@@ -33,16 +33,12 @@ const toggleVsCode = () => {
 }
 
 function handleClickOutside(event: MouseEvent) {
-  // Verifica se o clique foi fora do ícone
-  console.log('Click outside:', event.target)
-
   if (desktopIcon.value && !desktopIcon.value.contains(event.target as Node)) {
     vsCodeIsSelected.value = false
-    // templateStore.vsCodeConfig.isOpen = false
   }
-  if (desktopView.value && desktopView.value.contains(event.target as Node)) {
-    templateStore.vsCodeConfig.isOpen = false
-  }
+  // if (desktopView.value && desktopView.value.contains(event.target as Node)) {
+  //   templateStore.vsCodeConfig.isOpen = false
+  // }
 }
 
 onMounted(() => {
