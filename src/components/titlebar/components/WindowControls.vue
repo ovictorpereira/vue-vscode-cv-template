@@ -46,7 +46,7 @@ const templateStore = useTemplateStore()
 const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
 
 const minimizeVsCode = () => {
-  templateStore.vsCodeConfig.isMinimized = true
+  templateStore.toggleVsCodeMinimized()
 }
 
 const toggleFullScreen = () => {

@@ -15,5 +15,6 @@ import DesktopView from '@/views/DesktopView.vue'
   flex: 1;
   color: var(--vscode-foreground);
   position: relative;
+  overflow: hidden;
 }
 </style>

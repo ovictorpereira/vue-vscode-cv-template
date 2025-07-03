@@ -17,8 +17,17 @@ export const useTemplateStore = defineStore('template', () => {
   })
 
   const toggleVsCodeIsOpen = () => {
-    vsCodeConfig.value.isMinimized = false
-    vsCodeConfig.value.isOpen = !vsCodeConfig.value.isOpen
+    if (!vsCodeConfig.value.isMinimized) {
+      vsCodeConfig.value.isOpen = !vsCodeConfig.value.isOpen
+    } else {
+      vsCodeConfig.value.isMinimized = false
+    }
+  }
+
+  const toggleVsCodeMinimized = () => {
+    if (vsCodeConfig.value.isOpen) {
+      vsCodeConfig.value.isMinimized = !vsCodeConfig.value.isMinimized
+    }
   }
 
   const terminalConfig = ref<TerminalConfig>({
@@ -57,6 +66,7 @@ export const useTemplateStore = defineStore('template', () => {
   return {
     vsCodeConfig,
     toggleVsCodeIsOpen,
+    toggleVsCodeMinimized,
     terminalConfig,
     sidebarConfig,
     toggleVisibility,

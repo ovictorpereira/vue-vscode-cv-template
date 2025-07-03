@@ -1,11 +1,11 @@
 <template>
-  <div class="desktop-view" ref="desktopView" :class="{ 'z-index-2': !isOpen }">
+  <div class="desktop-view" ref="desktopView">
     <div
       class="desktop-icon"
       ref="desktopIcon"
       :class="{ 'desktop-icon-selected': vsCodeIsSelected }"
       @click="toggleSelection"
-      @dblclick="openVsCode"
+      @dblclick="toggleVsCodeIsOpen"
     >
       <img src="@/assets/images/vscode.svg" alt="VS Code icon" />
       <span>Visual Studio Code</span>
@@ -14,13 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useTemplateStore } from '@/stores/template'
 
-const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
-
 const templateStore = useTemplateStore()
-const openVsCode = () => {
+const toggleVsCodeIsOpen = () => {
   templateStore.toggleVsCodeIsOpen()
 }
 

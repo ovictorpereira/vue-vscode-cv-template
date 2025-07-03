@@ -1,5 +1,12 @@
 <template>
-  <div id="vscode-app" :class="{ 'vscode-app-is-fullscreen': isFullScreen, 'z-index-1': !isOpen }">
+  <div
+    id="vscode-app"
+    :class="{
+      'vscode-app-is-fullscreen': isFullScreen,
+      'vscode-app-is-closed': !isOpen,
+      'vscode-app-minimized': isMinimized,
+    }"
+  >
     <TitleBar />
     <div class="vscode-appbody">
       <aside class="vscode-aside-container" :class="{ 'sidebar-border': sidebarIsVisible }">
@@ -31,6 +38,7 @@ import FooterBar from '@/components/footerbar/FooterBar.vue'
 const templateStore = useTemplateStore()
 const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
 const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
+const isMinimized = computed(() => templateStore.vsCodeConfig.isMinimized)
 
 const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
 </script>
@@ -46,12 +54,16 @@ const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
   max-width: 100%;
   overflow: auto;
   align-self: center;
+  z-index: 2;
   padding: 20px;
   transition:
     width 0.15s ease-out,
     height 0.15s ease-out,
-    transform 0.12s ease-out;
-  z-index: 2;
+    transform 0.3s cubic-bezier(0.2, 0.96, 0.34, 1),
+    opacity 0.3s cubic-bezier(0.2, 0.96, 0.34, 1);
+
+  opacity: 1;
+  visibility: visible;
 }
 
 .vscode-app-is-fullscreen {
@@ -59,6 +71,24 @@ const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
   height: 100% !important;
   padding: 5px !important;
   box-shadow: none;
+}
+
+.vscode-app-is-closed {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease !important;
+}
+
+.vscode-app-minimized {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(100vh) scale(0.3);
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.96, 0.34, 1),
+    opacity 0.3s cubic-bezier(0.2, 0.96, 0.34, 1),
+    visibility 0.3s !important;
 }
 
 .vscode-appbody {
