@@ -30,6 +30,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
 import { TERMINAL_PATH } from '@/constants/constants'
+import pkg from '../../../../package.json'
 
 interface CommandLine {
   text: string
@@ -80,17 +81,14 @@ const processCommand = (command: string): string => {
 help     - Display this help
 clear    - Clear the terminal
 echo     - Display the text after the command
-exit     - Close the terminal (simulated)`
+version  - Display the app version`
 
     case 'clear':
       commandHistory.value = []
       return ''
 
-    case 'exit':
-      return 'To close the terminal, click the X icon on the terminal tab.'
-
     case 'version':
-      return 'Terminal VS Code Template v1.0.0'
+      return `Terminal VS Code Template v${pkg.version} - por Victor Pereira`
 
     default:
       if (cmd.startsWith('echo ')) {

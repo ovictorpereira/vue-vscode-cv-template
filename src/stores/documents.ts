@@ -8,7 +8,8 @@ export const useDocumentsStore = defineStore('documents', () => {
   const documentIsLoading = ref(false)
 
   const addDocument = async (document: Document) => {
-    closeAllDocuments()
+    closeActiveDocument()
+
     const existingDocument = documents.value.find((doc) => doc.id === document.id)
     if (existingDocument) {
       existingDocument.isActive = true
@@ -18,11 +19,10 @@ export const useDocumentsStore = defineStore('documents', () => {
         content: '',
         isActive: true,
       })
-      const content = await addGithubContent(document.url || '')
-      if (content) {
+
+      if (document.type === 'github') {
+        const content = await addGithubContent(document.url || '')
         documents.value[documents.value.length - 1].content = content
-      } else {
-        documents.value[documents.value.length - 1].content = 'No content available'
       }
     }
   }
@@ -44,16 +44,17 @@ export const useDocumentsStore = defineStore('documents', () => {
     return content.data
   }
 
-  const closeAllDocuments = () => {
-    documents.value.forEach((doc) => {
-      doc.isActive = false
-    })
+  const closeActiveDocument = () => {
+    const activeDocument = documents.value.find((doc) => doc.isActive)
+    if (activeDocument) {
+      activeDocument.isActive = false
+    }
   }
 
   const openDocument = (id: number) => {
     const document = documents.value.find((doc) => doc.id === id)
     if (document) {
-      closeAllDocuments()
+      closeActiveDocument()
       document.isActive = true
     }
   }
