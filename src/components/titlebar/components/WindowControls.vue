@@ -1,6 +1,6 @@
 <template>
   <div class="window-controls">
-    <div class="window-control">
+    <div class="window-control" @click="minimizeVsCode">
       <svg width="16" height="16" viewBox="0 0 12 12">
         <path d="M2 6h8v1H2z" fill="currentColor" />
       </svg>
@@ -45,11 +45,16 @@ import { computed } from 'vue'
 const templateStore = useTemplateStore()
 const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
 
+const minimizeVsCode = () => {
+  templateStore.vsCodeConfig.isMinimized = true
+}
+
 const toggleFullScreen = () => {
   templateStore.vsCodeConfig.isFullScreen = !templateStore.vsCodeConfig.isFullScreen
 }
+
 const closeVsCode = () => {
-  templateStore.vsCodeConfig.isOpen = false
+  templateStore.toggleVsCodeIsOpen()
 }
 </script>
 

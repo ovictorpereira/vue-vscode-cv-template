@@ -12,8 +12,14 @@ import type {
 export const useTemplateStore = defineStore('template', () => {
   const vsCodeConfig = ref<VsCodeConfig>({
     isOpen: true,
+    isMinimized: false,
     isFullScreen: false,
   })
+
+  const toggleVsCodeIsOpen = () => {
+    vsCodeConfig.value.isMinimized = false
+    vsCodeConfig.value.isOpen = !vsCodeConfig.value.isOpen
+  }
 
   const terminalConfig = ref<TerminalConfig>({
     height: 240,
@@ -50,6 +56,7 @@ export const useTemplateStore = defineStore('template', () => {
 
   return {
     vsCodeConfig,
+    toggleVsCodeIsOpen,
     terminalConfig,
     sidebarConfig,
     toggleVisibility,

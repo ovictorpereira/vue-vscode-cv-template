@@ -1,5 +1,6 @@
 export interface VsCodeConfig {
   isOpen: boolean
+  isMinimized: boolean
   isFullScreen: boolean
 }
 

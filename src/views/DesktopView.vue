@@ -4,7 +4,7 @@
       class="desktop-icon"
       ref="desktopIcon"
       :class="{ 'desktop-icon-selected': vsCodeIsSelected }"
-      @click="toggleVsCode"
+      @click="toggleSelection"
       @dblclick="openVsCode"
     >
       <img src="@/assets/images/vscode.svg" alt="VS Code icon" />
@@ -21,14 +21,14 @@ const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
 
 const templateStore = useTemplateStore()
 const openVsCode = () => {
-  templateStore.vsCodeConfig.isOpen = true
+  templateStore.toggleVsCodeIsOpen()
 }
 
 const vsCodeIsSelected = ref(false)
 const desktopView = ref<HTMLElement | null>(null)
 const desktopIcon = ref<HTMLElement | null>(null)
 
-const toggleVsCode = () => {
+const toggleSelection = () => {
   vsCodeIsSelected.value = !vsCodeIsSelected.value
 }
 
