@@ -1,12 +1,11 @@
 <template>
-  <DesktopView />
-  <VsCode />
-  <div class="windows-bar"></div>
+  <WindowsDesktop />
+  <VsCodeApplication />
 </template>
 
 <script setup lang="ts">
-import VsCode from '@/views/VsCode.vue'
-import DesktopView from '@/views/DesktopView.vue'
+import VsCodeApplication from '@/components/VsCodeApplication.vue'
+import WindowsDesktop from '@/components/WindowsDesktop.vue'
 </script>
 
 <style>
@@ -17,11 +16,5 @@ import DesktopView from '@/views/DesktopView.vue'
   color: var(--vscode-foreground);
   position: relative;
   overflow: hidden;
-}
-
-.windows-bar {
-  height: 60px;
-  width: 100%;
-  background-color: red;
 }
 </style>
