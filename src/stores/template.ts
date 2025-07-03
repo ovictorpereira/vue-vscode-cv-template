@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useDocumentsStore } from './documents'
 
 import type {
   VsCodeConfig,
@@ -10,6 +11,8 @@ import type {
 } from '@/types'
 
 export const useTemplateStore = defineStore('template', () => {
+  const documentsStore = useDocumentsStore()
+
   const vsCodeConfig = ref<VsCodeConfig>({
     isOpen: true,
     isMinimized: false,
@@ -19,6 +22,7 @@ export const useTemplateStore = defineStore('template', () => {
   const toggleVsCodeIsOpen = () => {
     if (!vsCodeConfig.value.isMinimized) {
       vsCodeConfig.value.isOpen = !vsCodeConfig.value.isOpen
+      documentsStore.removeAllDocuments()
     } else {
       vsCodeConfig.value.isMinimized = false
     }

@@ -71,11 +71,17 @@ export const useDocumentsStore = defineStore('documents', () => {
     }
   }
 
+  const removeAllDocuments = () => {
+    documents.value = []
+  }
+
   return {
     documentIsLoading,
     addDocument,
     openDocument,
     removeDocument,
+    closeActiveDocument,
+    removeAllDocuments,
     documents,
   }
 })
