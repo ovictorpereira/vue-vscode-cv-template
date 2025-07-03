@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop-view">
+  <div class="desktop-view" ref="desktopView" :class="{ 'z-index-2': !isOpen }">
     <div
       class="desktop-icon"
       ref="desktopIcon"
@@ -14,8 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useTemplateStore } from '@/stores/template'
+
+const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
 
 const templateStore = useTemplateStore()
 const openVsCode = () => {
@@ -23,15 +25,23 @@ const openVsCode = () => {
 }
 
 const vsCodeIsSelected = ref(false)
+const desktopView = ref<HTMLElement | null>(null)
 const desktopIcon = ref<HTMLElement | null>(null)
+
 const toggleVsCode = () => {
   vsCodeIsSelected.value = !vsCodeIsSelected.value
 }
 
 function handleClickOutside(event: MouseEvent) {
   // Verifica se o clique foi fora do ícone
+  console.log('Click outside:', event.target)
+
   if (desktopIcon.value && !desktopIcon.value.contains(event.target as Node)) {
     vsCodeIsSelected.value = false
+    // templateStore.vsCodeConfig.isOpen = false
+  }
+  if (desktopView.value && desktopView.value.contains(event.target as Node)) {
+    templateStore.vsCodeConfig.isOpen = false
   }
 }
 
@@ -46,14 +56,18 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .desktop-view {
+  position: absolute;
   display: flex;
   flex-direction: column;
   flex: 1;
-  width: 1600px;
+  height: 100vh;
+  width: 100%;
   max-width: 100%;
   align-self: center;
   align-items: flex-start;
   padding: 20px;
+  z-index: 1;
+  background-color: black;
 }
 
 .desktop-icon {

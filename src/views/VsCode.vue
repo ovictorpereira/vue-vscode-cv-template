@@ -1,5 +1,5 @@
 <template>
-  <div id="vscode-app" :class="{ 'vscode-app-is-fullscreen': isFullScreen }">
+  <div id="vscode-app" :class="{ 'vscode-app-is-fullscreen': isFullScreen, 'z-index-1': !isOpen }">
     <TitleBar />
     <div class="vscode-appbody">
       <aside class="vscode-aside-container" :class="{ 'sidebar-border': sidebarIsVisible }">
@@ -30,26 +30,28 @@ import FooterBar from '@/components/footerbar/FooterBar.vue'
 
 const templateStore = useTemplateStore()
 const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
-// const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
+const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
 
 const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
 </script>
 
 <style>
 #vscode-app {
+  position: absolute;
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100vh;
   width: 1600px;
   max-width: 100%;
   overflow: auto;
   align-self: center;
   padding: 20px;
-
   transition:
     width 0.15s ease-out,
     height 0.15s ease-out,
     transform 0.12s ease-out;
+  z-index: 2;
 }
 
 .vscode-app-is-fullscreen {
