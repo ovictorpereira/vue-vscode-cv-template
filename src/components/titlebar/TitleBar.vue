@@ -1,15 +1,15 @@
 import titleBar from '@/components/TaskBar.vue';
 <template>
-  <div class="title-bar" @dblclick="toggleFullScreen">
-    <div class="titlebar-section options-section">
+  <div class="title-bar">
+    <div class="titlebar-section options-section" @dblclick.self="toggleFullScreen">
       <img src="@/assets/images/vscode.svg" id="vscode-logo" alt="VSCode Logo" />
     </div>
 
-    <div class="titlebar-section search-section">
+    <div class="titlebar-section search-section" @dblclick.self="toggleFullScreen">
       <SearchBar />
     </div>
 
-    <div class="titlebar-section controls-section">
+    <div class="titlebar-section controls-section" @dblclick.self="toggleFullScreen">
       <ToggleControls />
       <WindowControls />
     </div>

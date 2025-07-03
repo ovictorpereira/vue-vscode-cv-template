@@ -40,6 +40,6 @@ const isReadmeActive = computed(() => {
 .tab-content {
   flex: 1;
   overflow: auto;
-  padding: 20px;
+  padding: 10px 20px;
 }
 </style>
