@@ -1,6 +1,12 @@
 <template>
   <div class="desktop-view">
-    <div class="desktop-icon" @click="openVsCode">
+    <div
+      class="desktop-icon"
+      ref="desktopIcon"
+      :class="{ 'desktop-icon-selected': vsCodeIsSelected }"
+      @click="toggleVsCode"
+      @dblclick="openVsCode"
+    >
       <img src="@/assets/images/vscode.svg" alt="VS Code icon" />
       <span>Visual Studio Code</span>
     </div>
@@ -8,11 +14,34 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useTemplateStore } from '@/stores/template'
+
 const templateStore = useTemplateStore()
 const openVsCode = () => {
   templateStore.vsCodeConfig.isOpen = true
 }
+
+const vsCodeIsSelected = ref(false)
+const desktopIcon = ref<HTMLElement | null>(null)
+const toggleVsCode = () => {
+  vsCodeIsSelected.value = !vsCodeIsSelected.value
+}
+
+function handleClickOutside(event: MouseEvent) {
+  // Verifica se o clique foi fora do ícone
+  if (desktopIcon.value && !desktopIcon.value.contains(event.target as Node)) {
+    vsCodeIsSelected.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped>
@@ -44,6 +73,10 @@ const openVsCode = () => {
 
 .desktop-icon:hover {
   background-color: #80818042;
+}
+
+.desktop-icon-selected {
+  background-color: #8180807d !important;
 }
 
 .desktop-icon img {
