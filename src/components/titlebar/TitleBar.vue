@@ -1,15 +1,15 @@
-import TaskBar from '@/components/TaskBar.vue';
+import titleBar from '@/components/TaskBar.vue';
 <template>
-  <div class="task-bar">
-    <div class="taskbar-section options-section">
+  <div class="title-bar">
+    <div class="titlebar-section options-section">
       <img src="@/assets/images/vscode.svg" id="vscode-logo" alt="VSCode Logo" />
     </div>
 
-    <div class="taskbar-section search-section">
+    <div class="titlebar-section search-section">
       <SearchBar />
     </div>
 
-    <div class="taskbar-section controls-section">
+    <div class="titlebar-section controls-section">
       <ToggleControls />
       <WindowControls />
     </div>
@@ -23,7 +23,7 @@ import WindowControls from '@/components/titlebar/components/WindowControls.vue'
 </script>
 
 <style scoped>
-.task-bar {
+.title-bar {
   height: 36px;
   min-height: 36px;
   background-color: var(--vscode-background);
@@ -35,7 +35,7 @@ import WindowControls from '@/components/titlebar/components/WindowControls.vue'
   user-select: none;
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid var(--vscode-border);
+  border: 1px solid var(--vscode-border);
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
@@ -46,7 +46,7 @@ import WindowControls from '@/components/titlebar/components/WindowControls.vue'
   margin-left: 12px;
 }
 
-.taskbar-section {
+.titlebar-section {
   display: flex;
   align-items: center;
   height: 100%;

@@ -1,5 +1,5 @@
 <template>
-  <div class="routes-bar">
+  <div class="activity-bar">
     <RouteItem path="/" :icon-component="ExplorerIcon" tooltip="Explorer (Ctrl + Shift + E)" />
     <RouteItem path="/search" :icon-component="SearchIcon" tooltip="Search (Ctrl + Shift + F)" />
   </div>
@@ -12,10 +12,10 @@ import SearchIcon from './components/icons/SearchIcon.vue'
 </script>
 
 <style scoped>
-.routes-bar {
+.activity-bar {
   width: 49px;
   background-color: var(--vscode-background);
-  border: 1px solid var(--vscode-border);
+  border-right: 1px solid var(--vscode-border);
 }
 
 .route-item {

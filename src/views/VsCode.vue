@@ -1,15 +1,18 @@
 <template>
   <div id="vscode-app" :class="{ 'vscode-app-is-fullscreen': isFullScreen }">
     <TitleBar />
-    <main class="vscode-appbody">
-      <ActivityBar />
-      <SidebarRouteView />
+    <div class="vscode-appbody">
+      <aside class="vscode-aside-container" :class="{ 'sidebar-border': sidebarIsVisible }">
+        <ActivityBar />
+        <SidebarRouteView />
+        <SidebarDragbar />
+      </aside>
 
-      <div class="vscode-main-container">
+      <main class="vscode-main-container">
         <AppDocuments />
         <TerminalBar />
-      </div>
-    </main>
+      </main>
+    </div>
     <FooterBar />
   </div>
 </template>
@@ -20,6 +23,7 @@ import { useTemplateStore } from '@/stores/template'
 import TitleBar from '@/components/titlebar/TitleBar.vue'
 import ActivityBar from '@/components/activitybar/ActivityBar.vue'
 import SidebarRouteView from '@/components/sidebar/SidebarRouteView.vue'
+import SidebarDragbar from '@/components/sidebar/components/SidebarDragbar.vue'
 import AppDocuments from '@/components/app-documents/AppDocuments.vue'
 import TerminalBar from '@/components/terminalbar/TerminalBar.vue'
 import FooterBar from '@/components/footerbar/FooterBar.vue'
@@ -27,6 +31,8 @@ import FooterBar from '@/components/footerbar/FooterBar.vue'
 const templateStore = useTemplateStore()
 const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
 // const isOpen = computed(() => templateStore.vsCodeConfig.isOpen)
+
+const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
 </script>
 
 <style>
@@ -60,6 +66,21 @@ const isFullScreen = computed(() => templateStore.vsCodeConfig.isFullScreen)
   height: 100%;
   width: 100%;
   background-color: var(--vscode-background);
+  border-left: 1px solid var(--vscode-border);
+  border-right: 1px solid var(--vscode-border);
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.vscode-aside-container {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar-border {
+  border-right: 1px solid var(--vscode-border);
 }
 
 .vscode-main-container {

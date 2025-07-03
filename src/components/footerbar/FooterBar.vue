@@ -16,5 +16,8 @@
   border-bottom-right-radius: 4px;
   color: var(--vscode-active-icon);
   font-size: 13px;
+  border-left: 1px solid var(--vscode-border);
+  border-right: 1px solid var(--vscode-border);
+  border-bottom: 1px solid var(--vscode-border);
 }
 </style>

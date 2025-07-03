@@ -37,7 +37,6 @@ const activeTab = computed(() => templateStore.terminalConfig.activeTab)
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-bottom: 1px solid var(--vscode-border);
 }
 
 .terminalbar-border {

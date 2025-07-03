@@ -1,18 +1,17 @@
 <template>
   <div
     class="sidebar-route-view"
-    :class="{ 'sidebar-route-view-border': sidebarIsVisible }"
     :style="{ width: sidebarIsVisible ? `${sidebarWidth}px` : `0px` }"
   >
     <RouterView v-if="sidebarIsVisible" />
   </div>
-  <SidebarDragbar />
+  <!-- <SidebarDragbar /> -->
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useTemplateStore } from '@/stores/template'
-import SidebarDragbar from './components/SidebarDragbar.vue'
+// import SidebarDragbar from './components/SidebarDragbar.vue'
 const templateStore = useTemplateStore()
 const sidebarIsVisible = computed(() => templateStore.sidebarConfig.isVisible)
 const sidebarWidth = computed(() => templateStore.sidebarConfig.width)
@@ -29,7 +28,7 @@ const sidebarWidth = computed(() => templateStore.sidebarConfig.width)
   max-width: 100%;
 }
 
-.sidebar-route-view-border {
+/* .sidebar-route-view-border {
   border: 1px solid var(--vscode-border);
-}
+} */
 </style>
