@@ -25,7 +25,6 @@ export const useDataTreeStore = defineStore('data-tree', () => {
       id: 3,
       label: 'README.md',
       type: 'readme',
-      icon: 'info',
       path: '/README.md',
     },
   ])
@@ -84,10 +83,9 @@ export const useDataTreeStore = defineStore('data-tree', () => {
         label: repo.name,
         url: repo.url,
         language: repo.language,
-        icon: 'github',
+        path: `/github/${repo.name}`,
         type: 'github' as DataType,
         isOpen: false,
-        children: [],
       }))
 
       const githubNodeId = 2

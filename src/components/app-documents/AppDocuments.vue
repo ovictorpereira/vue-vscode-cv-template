@@ -1,6 +1,7 @@
 <template>
   <div class="documents">
     <TabsContainer />
+    <PathContainer v-if="documents.length > 0" :path="activeDocument?.path" />
     <div class="tab-content vertical-scrollbar">
       <NoneDocument v-if="documents.length === 0" />
 
@@ -11,6 +12,7 @@
 
 <script setup lang="ts">
 import TabsContainer from './components/TabsContainer.vue'
+import PathContainer from './components/PathContainer.vue'
 import NoneDocument from './components/NoneDocument.vue'
 import MarkdownReader from './components/MarkdownReader.vue'
 import { computed } from 'vue'

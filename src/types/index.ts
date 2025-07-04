@@ -38,5 +38,6 @@ export interface Document {
   url?: string
   content: string
   type: DataType
+  path?: string
   isActive: boolean
 }
