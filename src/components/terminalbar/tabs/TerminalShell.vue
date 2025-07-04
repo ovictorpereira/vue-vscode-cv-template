@@ -88,7 +88,7 @@ version  - Display the app version`
       return ''
 
     case 'version':
-      return `Terminal VS Code Template v${pkg.version} - por Victor Pereira`
+      return `Terminal VS Code Template v${pkg.version}`
 
     default:
       if (cmd.startsWith('echo ')) {

@@ -34,9 +34,9 @@ function handleClickOutside(event: MouseEvent) {
   if (desktopIcon.value && !desktopIcon.value.contains(event.target as Node)) {
     vsCodeIsSelected.value = false
   }
-  // if (desktopView.value && desktopView.value.contains(event.target as Node)) {
-  //   templateStore.vsCodeConfig.isOpen = false
-  // }
+  if (desktopView.value && desktopView.value.contains(event.target as Node)) {
+    templateStore.vsCodeConfig.isOpen = false
+  }
 }
 
 onMounted(() => {

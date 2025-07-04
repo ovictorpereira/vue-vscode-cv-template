@@ -2,7 +2,6 @@
 
 📍 Rio de Janeiro, RJ, Brazil  
 [ovictorpereira@gmail.com](mailto:ovictorpereira@gmail.com)  
-+55 (21) 97199-8624  
 [LinkedIn](https://www.linkedin.com/in/victorpereira-a8496b102/)  
 [GitHub](https://github.com/ovictorpereira)
 

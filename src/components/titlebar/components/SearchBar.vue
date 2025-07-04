@@ -39,4 +39,10 @@ import { PROJECT_NAME } from '@/constants/constants'
   font-weight: 500;
   color: var(--vscode-foreground);
 }
+
+@media (max-width: 750px) {
+  .search-bar {
+    display: none;
+  }
+}
 </style>
