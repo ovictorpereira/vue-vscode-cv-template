@@ -1,4 +1,4 @@
-# VS Code CV Template
+# Vue VS Code CV Template
 
 A Vue.js template that simulates the Visual Studio Code interface to showcase your resume/cv and GitHub portfolio in a unique and developer-friendly way.
 
