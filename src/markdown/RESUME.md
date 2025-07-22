@@ -17,5 +17,5 @@ Follows best practices in component architecture, state management, and automate
 - Vue.js, React, React Native, Flutter
 - TypeScript, Node.js, Express, MongoDB, Firebase
 - TailwindCSS, Styled Components, SASS, Bootstrap, Vuetify
-- Git, Docker, Vite, Webpack, Jest, Cypress
+- Git, Docker, Vite, Jenkins, Webpack, Jest
 - Scrum, CI/CD, Agile Development
