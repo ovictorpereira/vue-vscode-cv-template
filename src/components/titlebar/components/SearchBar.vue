@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import SearchIcon from './icons/SearchIcon.vue'
-import { PROJECT_NAME } from '@/constants/constants'
+import { PROJECT_NAME } from '@/constants'
 </script>
 
 <style scoped>

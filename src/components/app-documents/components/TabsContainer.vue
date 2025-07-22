@@ -70,7 +70,7 @@ const removeDocument = (id: number) => {
   border-right: 1px solid var(--vscode-border);
   border-top-left-radius: 0.1rem;
   border-top-right-radius: 0.1rem;
-  color: var(--vscode-inactive-icon);
+  color: var(--vscode-inactive);
   position: relative;
   margin-bottom: 0;
   z-index: 1;

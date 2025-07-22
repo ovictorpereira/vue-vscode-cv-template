@@ -19,7 +19,7 @@
   background-color: var(--vscode-background);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
   font-size: 12px;
   border-left: 1px solid var(--vscode-border);
   border-right: 1px solid var(--vscode-border);

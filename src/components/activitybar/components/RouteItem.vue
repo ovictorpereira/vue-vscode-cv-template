@@ -35,10 +35,10 @@ const tbTooltip = {
 }
 
 .route-icon {
-  fill: var(--vscode-inactive-icon);
+  fill: var(--vscode-inactive);
 }
 
 .active-route-icon {
-  fill: var(--vscode-active-icon);
+  fill: var(--vscode-active);
 }
 </style>

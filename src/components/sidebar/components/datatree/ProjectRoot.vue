@@ -36,7 +36,7 @@ function nodeAction() {
   flex-direction: row;
   align-items: center;
   flex-direction: row;
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 }
 
 .primary-label {

@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
-import { TERMINAL_PATH } from '@/constants/constants'
+import { TERMINAL_PATH } from '@/constants'
 import pkg from '../../../../package.json'
 
 interface CommandLine {
@@ -156,21 +156,21 @@ onMounted(() => {
 .command-input {
   background-color: transparent;
   border: none;
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
   font-family: 'Consolas', 'Courier New', monospace;
   font-size: 14px;
   flex: 1;
-  caret-color: var(--vscode-active-icon);
+  caret-color: var(--vscode-active);
   outline: none;
   width: 100%;
   word-break: break-word;
 }
 
 .command-text {
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 }
 
 .output-text {
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 }
 </style>

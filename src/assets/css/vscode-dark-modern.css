@@ -3,8 +3,8 @@
   --vscode-tab-background: #1f1f1f;
   --vscode-foreground: #cccccc;
   --vscode-border: #2b2b2b;
-  --vscode-active-icon: #d7d7d7;
-  --vscode-inactive-icon: #868686;
-  --vscode-icon-hover: #3c3c3c;
+  --vscode-active: #d7d7d7;
+  --vscode-inactive: #868686;
+  --vscode-hover: #3c3c3c;
   --vscode-selected-blue: #0078d4;
 }

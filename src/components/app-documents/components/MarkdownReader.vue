@@ -54,7 +54,7 @@ watch(
 /* Override github-markdown-css with VS Code theme styling */
 .markdown-body {
   background-color: inherit;
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 
   line-height: 1.5;
   word-wrap: break-word;

@@ -62,7 +62,7 @@ function nodeAction() {
   height: 25px;
   display: flex;
   flex-direction: column;
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 }
 
 .node-content {
@@ -102,7 +102,7 @@ function nodeAction() {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 }
 
 .children-container {

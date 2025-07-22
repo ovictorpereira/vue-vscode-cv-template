@@ -49,6 +49,6 @@ defineProps<Props>()
 }
 
 .route-header-icon:hover {
-  background-color: var(--vscode-icon-hover);
+  background-color: var(--vscode-hover);
 }
 </style>

@@ -26,7 +26,7 @@ A Vue.js template that simulates the Visual Studio Code interface to showcase yo
 
 ### Configuration
 
-1. **Set your GitHub username** - Edit `src/constants/constants.ts`:
+1. **Set your GitHub username** - Edit `src/constants/index.ts`:
 
 ```typescript
 export const PROJECT_NAME = 'vue-vscode-cv-template'

@@ -52,7 +52,7 @@ const activeTab = computed<TerminalTabOption>(() => templateStore.terminalConfig
   width: 100%;
   font-size: 11px;
   gap: 20px;
-  color: var(--vscode-inactive-icon);
+  color: var(--vscode-inactive);
   padding: 0;
 }
 .terminal-header-options li {
@@ -62,7 +62,7 @@ const activeTab = computed<TerminalTabOption>(() => templateStore.terminalConfig
 }
 .terminal-header-options li.active,
 .terminal-header-options li:hover {
-  color: var(--vscode-active-icon);
+  color: var(--vscode-active);
 }
 
 .terminal-header-options li.active {
@@ -79,6 +79,6 @@ const activeTab = computed<TerminalTabOption>(() => templateStore.terminalConfig
 }
 
 .terminal-close:hover {
-  background-color: var(--vscode-icon-hover);
+  background-color: var(--vscode-hover);
 }
 </style>

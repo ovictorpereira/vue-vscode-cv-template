@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { PROJECT_NAME, GITHUB_USERNAME } from '@/constants/constants'
+import { PROJECT_NAME, GITHUB_USERNAME } from '@/constants'
 import type { TreeNode, DataType } from '@/types'
 import axios from 'axios'
 import { useDocumentsStore } from './documents'

@@ -76,7 +76,7 @@ const closeVsCode = () => {
 }
 
 .window-control:hover {
-  background-color: var(--vscode-icon-hover);
+  background-color: var(--vscode-hover);
 }
 
 .window-control-close:hover {
