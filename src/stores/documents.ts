@@ -3,7 +3,16 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 import type { Document } from '@/types'
 export const useDocumentsStore = defineStore('documents', () => {
-  const documents = ref<Document[]>([])
+  const documents = ref<Document[]>([
+    {
+      id: 3,
+      label: 'README.md',
+      type: 'readme',
+      path: '/README.md',
+      content: '',
+      isActive: true,
+    },
+  ])
 
   const documentIsLoading = ref(false)
 
