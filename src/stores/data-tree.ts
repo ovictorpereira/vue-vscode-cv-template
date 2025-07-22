@@ -77,16 +77,19 @@ export const useDataTreeStore = defineStore('data-tree', () => {
         name: string
         language: string | null
         url: string
+        fork: boolean
       }
-      const repos = (response.data as GithubRepo[]).map((repo) => ({
-        id: repo.id,
-        label: repo.name,
-        url: repo.url,
-        language: repo.language,
-        path: `/github/${repo.name}`,
-        type: 'github' as DataType,
-        isOpen: false,
-      }))
+      const repos = (response.data as GithubRepo[])
+        .filter((repo: GithubRepo) => !repo.fork)
+        .map((repo) => ({
+          id: repo.id,
+          label: repo.name,
+          url: repo.url,
+          language: repo.language,
+          path: `/github/${repo.name}`,
+          type: 'github' as DataType,
+          isOpen: false,
+        }))
 
       const githubNodeId = 2
       populateNodeChildren(githubNodeId, repos)

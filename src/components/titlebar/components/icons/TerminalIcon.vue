@@ -11,7 +11,7 @@
         stroke-width="2"
         fill="none"
       />
-      <rect x="1" y="15" width="22" height="8" fill="currentColor" rx="0 0 2 2" />
+      <rect x="1" y="15" width="22" height="8" fill="currentColor" rx="0" />
     </template>
     <template v-else>
       <rect
