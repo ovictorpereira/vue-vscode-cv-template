@@ -1,39 +1,56 @@
-# vscode-template-vue
+# VS Code Resume Template
 
-This template should help get you started developing with Vue 3 in Vite.
+A Vue.js template that simulates the Visual Studio Code interface to showcase your resume and GitHub portfolio in a unique and developer-friendly way.
 
-## Recommended IDE Setup
+![VS Code Resume Template](https://github.com/ovictorpereira/vue-vscode-cv-template/raw/main/public/screenshot.png)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Type Support for `.vue` Imports in TS
+- **VS Code Interface**: Authentic VS Code look and feel with dark theme
+- **GitHub Integration**: Display your repositories directly from GitHub
+- **Resume Display**: Present your CV in a markdown-styled format
+- **Responsive Design**: Works on desktop and mobile devices
+- **Customizable**: Easy to modify for your personal information
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## System Requirements
 
-## Customize configuration
+- Node.js 18.x or higher
+- npm 9.x or higher
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Getting Started
 
-## Project Setup
+### Configuration
 
-```sh
-npm install
+1. **Set your GitHub username** - Edit `src/constants/constants.ts`:
+
+```typescript
+export const PROJECT_NAME = 'vue-vscode-cv-template'
+export const GITHUB_USERNAME = 'your-github-username' // Change this to your GitHub username
+export const TERMINAL_PATH = `D:\\Projects\\${PROJECT_NAME}`
 ```
 
-### Compile and Hot-Reload for Development
+2. **Edit your resume** - Modify `src/markdown/RESUME.md` with your personal information:
 
-```sh
-npm run dev
+```markdown
+# Your Name
+
+## About Me
+
+A brief description about yourself...
+
+## Experience
+
+- Job title at Company (YYYY-YYYY)
+  Description of responsibilities and achievements
+
+...
 ```
 
-### Type-Check, Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
+[MIT](LICENSE)
 
-### Lint with [ESLint](https://eslint.org/)
+## Acknowledgements
 
-```sh
-npm run lint
-```
+- Built with [Vue.js](https://vuejs.org/)
+- Inspired by [Visual Studio Code](https://code.visualstudio.com/)
