@@ -1,6 +1,6 @@
-# VS Code Resume Template
+# VS Code CV Template
 
-A Vue.js template that simulates the Visual Studio Code interface to showcase your resume and GitHub portfolio in a unique and developer-friendly way.
+A Vue.js template that simulates the Visual Studio Code interface to showcase your resume/cv and GitHub portfolio in a unique and developer-friendly way.
 
 ![VS Code Resume Template](src/assets/images/screenshot.jpg)
 
@@ -8,7 +8,7 @@ A Vue.js template that simulates the Visual Studio Code interface to showcase yo
 
 - **VS Code Interface**: Authentic VS Code look and feel with dark theme
 - **GitHub Integration**: Display your repositories directly from GitHub
-- **Resume Display**: Present your CV in a markdown-styled format
+- **CV Display**: Present your CV in a markdown-styled format
 - **Responsive Design**: Works on desktop and mobile devices
 - **Customizable**: Easy to modify for your personal information
 - **Terminal Simulation**: Functional terminal bar with command history

@@ -78,9 +78,11 @@ export const useDataTreeStore = defineStore('data-tree', () => {
         language: string | null
         url: string
         fork: boolean
+        created_at: string
       }
       const repos = (response.data as GithubRepo[])
         .filter((repo: GithubRepo) => !repo.fork)
+        .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
         .map((repo) => ({
           id: repo.id,
           label: repo.name,
